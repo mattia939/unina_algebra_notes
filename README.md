@@ -37,7 +37,7 @@ ___
 
 Le regole di contribuzione sono spiegate [qui](./CONTRIBUTING.md)
 ___
-###🛠 Supporto
+### 🛠 Supporto
 
 Se riscontri problemi:
 
