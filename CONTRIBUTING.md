@@ -1,5 +1,3 @@
-### 📄 CONTRIBUTING.md
-
 # Guida alla contribuzione 🤝
 
 Grazie per il tuo interesse a contribuire a questi **appunti di Algebra**!  
