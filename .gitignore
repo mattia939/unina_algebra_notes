@@ -22,7 +22,7 @@
 *.synctex.gz
 *.main.fdb_latexmk
 unina_algebra_notes.pdf
-
+main.pdf
 # Scripts
 *.bat
 
