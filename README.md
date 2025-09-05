@@ -1,7 +1,6 @@
 # Appunti di Algebra 📘
 
-Questo repository raccoglie gli **appunti di Algebra** del Corso di Laurea in Informatica presso l’Università degli Studi di Napoli *Federico II*.  
-Il progetto utilizza una **classe LaTeX personalizzata** (`unina_doc_class.cls`) e un `Makefile` per la compilazione automatica.
+Questo repository raccoglie gli **appunti di Algebra** del Corso di Laurea in Informatica presso l’Università degli Studi di Napoli *Federico II*.
 
 ---
 
