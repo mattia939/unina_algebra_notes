@@ -11,13 +11,13 @@ Il progetto utilizza una **classe LaTeX personalizzata** (`unina_doc_class.cls`)
 - [LaTeX (TeX Live / MikTeX)](https://www.latex-project.org/get/)
 - `make`
 - Font presenti nella cartella `fonts/`
-
+___
 ### Compilazione
 Per generare il PDF degli appunti:
 ```bash
 make build
 ```
-
+___
 ### 📂 Struttura
 
 La repo è organizzata così:
@@ -43,6 +43,10 @@ Se riscontri problemi:
 
 * Apri una Issue su GitHub
 * Oppure proponi una Pull Request con la correzione
+___
+### Credits
+
+Questo progetto usa il [template](./unina_doc_class.cls) sviluppato da [@luftmensch-luftmensch](https://github.com/luftmensch-luftmensch).
 ___
 ### 📄 Licenza
 Questo lavoro è distribuito con licenza Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International ([CC BY-NC-SA 4.0](./LICENSE).
