@@ -18,7 +18,7 @@ Per generare il PDF degli appunti:
 make build
 ```
 
-###📂 Struttura
+### 📂 Struttura
 
 La repo è organizzata così:
 ```bash
