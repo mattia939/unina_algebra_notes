@@ -1,0 +1,1291 @@
+\chapter{Logica rudimentale}
+
+\section{Proposizioni logiche}
+Ogni teoria matematica è espressa in un \textbf{linguaggio}, che è costituito da:
+\begin{enumerate}
+	\item Da un \textbf{alfabeto di simboli} che possono essere messi insieme per costruire parole (stringhe di caratteri);
+	\item Da \textbf{regole sintattiche} che permettono di distinguere tra stringhe ``composte correttamente'', chiamate \textbf{formule}, e stringhe che non sono correttamente composte.
+\end{enumerate}
+
+\begin{example}
+	Ad esempio, la stringa ``$0<1$'' rappresenta una formula mentre la stringa $``0<$'' no.
+\end{example}
+Tra le formule matematiche facciamo un'ulteriore distinzione: 
+
+\dfn{Formula chiusa}{
+	Le formule alle quali è possibile attribuire univocamente un valore di verità, \textit{vero} o \textit{falso}, vengono chiamate \textbf{proposizioni} o \textbf{formule chiuse}\index{Formula chiusa}.
+}
+
+\begin{example}
+	La formula ``$x>1$'' non è una proposizione in quanto non possiamo associare un valore vero o falso in quanto \textit{dipendente} dal valore della variabile $x$.
+\end{example}
+\subsection{I connettivi logici}
+Ogni linguaggio contiene dei simboli, mediante i quali è possibile costruire periodi più complessi a partire da blocchi atomici. Anche nella logica matematica esistono dei simboli, chiamati \textbf{connettivi logici}\index{Connettivi}, che permettono di costruire proposizioni più complesse a partire da proposizioni più semplici. I connettivi logici più comuni sono:
+\begin{itemize}
+	\item \textbf{Negazione}: $\neg$;
+	\item \textbf{Congiunzione}: $\land$;
+	\item \textbf{Disgiunzione}: $\lor$;
+	\item \textbf{Disgiunzione esclusiva}: $\xor$;
+	\item \textbf{Equivalenza}: $\iff$;
+	\item \textbf{Implicazione}: $\implies$.
+\end{itemize}
+\subsubsection{Negazione}\index{Connettivi!Negazione}
+La negazione di una proposizione $p$ è una proposizione che è vera quando $p$ è falsa e viceversa. La negazione di una proposizione $p$ viene indicata con $\neg p$. Il connettivo di negazione è \textbf{unario}, ovvero è un connettivo che agisce su una sola proposizione. Spesso, per visualizzare i valori di verità di una proposizione, si utilizza una tabella chiamata \textbf{tabella di verità}. 
+
+La tabella di verità della negazione è la seguente:
+
+\begin{center}
+	\begin{tblr}{
+			hlines = {0.9pt}, vlines = {0.9pt}, colspec = {X[c]X[c]X[c]},
+			row{1} = {primary!80!white}}
+		$p$ & $\neg p$ \\
+		V & F \\
+		F & V
+	\end{tblr}
+	\captionof{table}{Tavola di verità della negazione}\label{tab:negation}
+\end{center}
+
+\subsubsection{Congiunzione}\index{Connettivi!Congiunzione}
+La congiunzione di due proposizioni $p$ e $q$ è una proposizione che è vera quando $p$ e $q$ sono vere e falsa in tutti gli altri casi. La congiunzione di due proposizioni $p$ e $q$ viene indicata con $p \land q$. Il connettivo di congiunzione è \textbf{binario}, ovvero è un connettivo che agisce su due proposizioni. La tabella di verità della congiunzione è la seguente:
+
+\begin{center}
+	\begin{tblr}{
+			hlines = {0.9pt}, vlines = {0.9pt}, colspec = {X[c]X[c]X[c]},
+			row{1} = {primary!80!white}}
+		$p$ & $q$ & $p \land q$ \\
+		V & V & V \\
+		V & F & F \\
+		F & V & F \\
+		F & F & F
+	\end{tblr}
+	\captionof{table}{Tavola di verità della congiunzione}\label{tab:congiunzione}
+\end{center}
+
+\subsubsection{Disgiunzione}\index{Connettivi!Disgiunzione}
+La disgiunzione di due proposizioni $p$ e $q$ è una proposizione che è vera quando $p$ o $q$ sono vere e falsa in tutti gli altri casi. La disgiunzione di due proposizioni $p$ e $q$ viene indicata con $p \lor q$. La tabella di verità della disgiunzione è la seguente:
+
+\begin{center}
+	\begin{tblr}{
+			hlines = {0.9pt}, vlines = {0.9pt}, colspec = {X[c]X[c]X[c]},
+			row{1} = {primary!80!white}}
+		$p$ & $q$ & $p \lor q$ \\
+		V & V & V \\
+		V & F & V \\
+		F & V & V \\
+		F & F & F
+	\end{tblr}
+	\captionof{table}{Tavola di verità della disgiunzione}\label{tab:disgiunzione}
+\end{center}
+
+\subsubsection{Disgiunzione esclusiva}\index{Connettivi!Disgiunzione esclusiva}
+La disgiunzione esclusiva di due proposizioni $p$ e $q$ è una proposizione che è vera quando $p$ o $q$ sono vere, ma non entrambe, e falsa in tutti gli altri casi. La disgiunzione esclusiva di due proposizioni $p$ e $q$ viene indicata con $p \xor q$. La tabella di verità della disgiunzione esclusiva è la seguente:
+
+\begin{center}
+	\begin{tblr}{
+			hlines = {0.9pt}, vlines = {0.9pt}, colspec = {X[c]X[c]X[c]},
+			row{1} = {primary!80!white}}
+		$p$ & $q$ & $p \xor q$ \\
+		V & V & F \\
+		V & F & V \\
+		F & V & V \\
+		F & F & F
+	\end{tblr}
+	\captionof{table}{Tavola di verità della disgiunzione esclusiva}\label{tab:xor}
+\end{center}
+
+\subsubsection{Equivalenza}\index{Connettivi!Equivalenza}
+L'equivalenza di due proposizioni $p$ e $q$ è una proposizione che è vera quando $p$ e $q$ hanno lo stesso valore di verità e falsa in tutti gli altri casi. L'equivalenza di due proposizioni $p$ e $q$ viene indicata con $p \iff q$. La tabella di verità dell'equivalenza è la seguente:
+
+\begin{center}
+	\begin{tblr}{
+			hlines = {0.9pt}, vlines = {0.9pt}, colspec = {X[c]X[c]X[c]},
+			row{1} = {primary!80!white}}
+		$p$ & $q$ & $p \iff q$ \\
+		V & V & V \\
+		V & F & F \\
+		F & V & F \\
+		F & F & V \\
+	\end{tblr}
+	\captionof{table}{Tavola di verità dell'equivalenza logica}\label{tab:equivalence}
+\end{center}
+
+\begin{defbox}{Proposizione logica}\index{Proposizione}
+	Una \textbf{proposizione logica} o \textbf{forma proposizionale} è una formula ottenuta dalla composizione di una o più formule mediante connettivi logici.
+\end{defbox}
+
+Per calcolare il valore di verità di una forma proposizionale possiamo avvalerci delle tabelle di verità oppure, come si vedrà più in avanti, usare alcune proprietà che permettono di arrivare al risultato in maniera più veloce. Infatti, data una forma proposizionale di $k$ variabili è necessario costruire una tabella di $2^{k}$ righe.
+
+\begin{example}
+	\begin{enumerate}
+	\item Si voglia calcolare il valore di verità della forma $p \land (q \lor p)$, dove $p$ e $q$ sono proposizioni. La tabella di verità conterrà $2^{2}=4$ righe e sarà la seguente:
+	\begin{center}
+		\begin{tblr}{
+				hlines = {0.9pt}, vlines = {0.9pt}, colspec = {X[c]X[c]X[c]X[c]}, cells={mode=math},
+				row{1} = {primary!80!white}}
+			p & q & q \lor p & p \land (q \lor p)\\
+			V & V & V & V \\
+			V & F & V & V \\
+			F & V & V & F \\
+			F & F & F & F
+		\end{tblr}
+	\end{center}
+	
+	Come si può notare, per calcolare il valore di verità della formula finale ci siamo avvalsi di una colonna intermedia.
+
+
+	\item Si calcoli il valore di verità della forma $P \land (Q \lor R)$, dove $P$, $Q$ e $R$ sono proposizioni. Essendo tre le variabili proposizionali la tabella di verità avrà $2^{3}=8$ righe.
+	\begin{center}
+		\begin{tblr}{
+				hlines = {0.9pt}, vlines = {0.9pt}, colspec = {X[c]X[c]X[c]X[c]X[c]}, cells={mode=math},
+				row{1} = {primary!80!white}}
+			p & q & r & q \lor r & p \land (q \lor r)\\
+			V & V & V & V & V \\
+			V & F & V & V & V \\
+			F & V & V & V & F \\
+			F & F & V & V & F \\
+			V & V & F & V & V \\
+			V & F & F & F & F \\
+			F & V & F & V & F \\
+			F & F & F & F & F
+		\end{tblr}
+	\end{center}
+
+	\item Un altro esempio banale di proposizioni logicamente equivalenti è dato dalla formula $P \land P$ e $P$. Si vede infatti immediatamente dalla tabella di verità:
+	
+	\begin{center}
+		\begin{tblr}{
+				hlines = {0.9pt}, vlines = {0.9pt}, colspec = {X[c]X[c]X[c]},
+				row{1} = {primary!80!white}}
+			$P$ & $P \land P$ & $P \iff P \land P$\\
+			V  & V & V \\
+			F  & F & V
+		\end{tblr}
+	\end{center}
+	Osservando la tavola di verità notiamo che la prima e l'ultima colonna sono uguali. Questo è dovuto al fatto che la congiunzione è un connettivo \textbf{idempotente}, ovvero che restituisce sempre il primo valore di verità quando le due proposizioni sono uguali. 
+\end{enumerate}
+\end{example}
+
+\begin{defbox}{Tautologia}\index{Tautologia}
+	Una forma proposizionale $\varphi$ che assume valore di verità vero in modo del tutto indipendente dai valori attribuiti alle variabili che appaiono in $\varphi$ viene chiamata \textbf{tautologia}. Dualmente, esistono forme proposizionali $\varphi$ per le quali, calcolato il valore di verità, si ottiene sempre il valore F. Queste si chiamano \textbf{contraddizioni}.
+\end{defbox}
+
+Ovviamente $\varphi$ è una contraddizione se e solo se $\neg \varphi$ è una tautologia. Una forma proposizionale che non sia né una tautologia né una contraddizione si dice \textbf{contingente}. Le tautologie sono molto utili nelle dimostrazioni. Infatti, nota la tabella di verità di una determinata formula siamo in grado di sapere la tabella di verità di una formula logicamente equivalente alla prima.
+
+\begin{example}
+\begin{enumerate}
+	\item La \textbf{doppia negazione} è una tautologia. Infatti, la tabella di verità è la seguente:
+	
+	\begin{center}
+		\begin{tblr}{
+				hlines = {0.9pt}, vlines = {0.9pt}, colspec = {X[c]X[c]X[c]},
+				row{1} = {primary!80!white}}
+			$p$ & $\neg p$ & $\neg (\neg p)$\\
+			V & F & V \\
+			F & V & F
+		\end{tblr}
+	\end{center}
+	
+	La doppia negazione è molto utile per semplificare le formule proposizionali. Infatti, è possibile semplificare la formula $P \land \neg (\neg P)$ in $P \land P$ e quindi in $P$.
+
+	\item Il \textbf{principio di non contraddizione} afferma che una proposizione non può essere vera e falsa allo stesso tempo. Questo principio può essere espresso in logica proposizionale come $\neg (p \land \neg p)$, ovvero la negazione della congiunzione di una proposizione e della sua negazione. La tabella di verità è la seguente:
+	
+	\medskip
+	
+	\begin{center}
+		\begin{tblr}{
+				hlines = {0.8pt}, vlines = {0.9pt}, colspec = {X[c]X[c]X[c]X[c]},
+				row{1} = {primary!80!white}}
+			$p$ & $\neg p$ & $p \land \neg p$ & $\neg (p \land \neg p)$\\
+			V & F & F & V \\
+			F & V & F & V \\
+		\end{tblr}
+	\end{center}
+	\medskip
+	
+	Come si può notare, la formula è una tautologia. Analogamente, è possibile ottenere una tautologia simile utilizzando il connettivo di disgiunzione: $p \lor (\neg p)$. Esempi di questa proposizione nel parlato quotidiano possono essere: ``In questo momento piove oppure in questo momento non piove'', ``Studio l'algebra oppure non studio l'algebra'', ecc. Verità oggettive sotto qualsiasi punto di vista.
+\end{enumerate}
+\end{example}
+
+\begin{propbox}
+	Siano $P$ e $Q$ due forme proposizionali. $P$ e $Q$ sono logicamente equivalenti se e solo se $ (P \iff Q)$ è una tautologia.
+\end{propbox}
+
+\begin{proof}
+	Banale. Siano $P$ e $Q$ due proposizioni logicamente equivalenti, si ha allora:
+	\begin{center}
+		\begin{tblr}{hlines,vlines,row{1}={primary!80!white},colspec={X[c]X[c]X[c]},cells={mode=math}}
+			P & Q & P \iff Q \\
+			V & V & V \\
+			F & F & V
+		\end{tblr}
+	\end{center}
+	e  $P \iff Q$ risulta essere quindi una tautologia. Viceversa, sia $P \iff Q$ una tautologia. Allora, per definizione di equivalenza logica, $P$ e $Q$ hanno gli stessi valori logici e quindi sono logicamente equivalenti.
+\end{proof}
+
+\subsection{Il connettivo condizionale}\index{Connettivi!Implicazione}
+Il connettivo condizionale è un connettivo binario che associa due proposizioni $p$ e $q$ e restituisce una proposizione che è falsa quando $p$, detta ``antecedente'', è vera e $q$, detta ``conseguente'', è falsa, e vera in tutti gli altri casi. Il connettivo condizionale di due proposizioni $p$ e $q$ viene indicato con $p \implies q$. Il connettivo condizionale è anche detto \textbf{implicazione}. La tabella di verità del connettivo condizionale è mostrata nella Tabella \ref{tab:condizionale}.
+
+\begin{center}
+	\begin{tblr}{
+			hlines = {0.9pt}, vlines = {0.9pt}, colspec = {X[c]X[c]X[c]},
+			row{1} = {primary!80!white}}
+		$p$ & $q$ & $p \implies q$ \\
+		V & V & V \\
+		V & F & F \\
+		F & V & V \\
+		F & F & V
+	\end{tblr}
+	\captionof{table}{Tavola di verità del connettivo condizionale.}\label{tab:condizionale}
+\end{center}
+
+\begin{example}
+	Nella logica proposizionale, frasi come ``Se piove allora il Vesuvio è alto più di mille metri sul livello del mare'' hanno assolutamente senso in quanto sono delle vere e proprie formule proposizionali. Infatti, se indichiamo con $P$ la proposizione ``piove'' e con $Q$ la proposizione ``il Vesuvio è alto più di mille metri sul livello del mare'', la frase precedente può essere riscritta come $P \implies Q$.
+\end{example}
+
+\begin{osservation}
+	Perché le implicazioni con antecedente falso devono essere vere? Consideriamo la frase: ``Per ogni numero intero $x$ compreso tra 1 e 3 si ha che se $x>2$ allora $x>1$''. Tutti concordiamo sul fatto che questa frase sia vera. Analizziamola: essa significa che tutte le implicazioni del tipo $x>2 \implies x>1$ ottenute sostituendo ad $x$ uno dei numeri 1, 2, 3 sono vere. Sono vere quindi le proposizioni:
+	\begin{enumerate}[itemjoin={,\quad}]
+		\item $\Phi_{1}$: ``$1>2 \implies 1>1$''
+		\item $\Phi_{2}$: ``$2>2 \implies 2>1$''
+		\item $\Phi_{3}$: ``$3>2 \implies 3>1$''
+	\end{enumerate}
+	In particolare risulta vera anche la proposizione $\Phi_{1}$, che è del tipo $F \implies V$. Questo è in accordo con la tabella di verità del connettivo condizionale (Tabella \ref{tab:condizionale}). Dunque le implicazioni con antecedente falso sono vere. Si osserva che sono vere anche le implicazioni con conseguente vero. In effetti, si può dire, sinteticamente, che una \textit{implicazione è vera precisamente quando il suo antecedente è falso o il suo conseguente è vero}.
+\end{osservation}
+
+\section{Proprietà dei connettivi logici}\label{proprietà_connettivi}
+Esprimere una proprietà per un connettivo logico significa affermare che la tabella di verità di una formula è sempre uguale a quella di un'altra formula. In altre parole, significa affermare che le due formule sono logicamente equivalenti e quindi che la formula che esprime la proprietà è una tautologia.
+
+\begin{propbox}
+	I connettivi logici godono delle seguenti proprietà, valgono cioè le seguenti tautologie:
+	\begin{enumerate}
+		\item \textbf{Idempotenza:}
+		\begin{eqnarray}
+			p \land p &\iff& p \\
+			p \lor p &\iff& p
+		\end{eqnarray}
+		\item \textbf{Commutatività:}
+		\begin{eqnarray}
+			p \land q &\iff& q \land p \\
+			p \lor q &\iff& q \lor p \\
+			p \xor q &\iff& q \xor p \\
+			\bigl(p \iff q\bigr) &\iff& \bigl(q \iff p\bigr)
+		\end{eqnarray}
+		\item \textbf{Associatività}
+		\begin{eqnarray}
+			\bigl(p \land q\bigr) \land r &\iff& p \land \bigl(q \land r\bigr)\\
+			\bigl(p \lor q\bigr) \lor r &\iff& p \lor \bigl(q \lor r\bigr)\\
+			\bigl((p \iff q) \iff r\bigr) &\iff& \bigl(p \iff (q \iff r)\bigr) \label{eq:associativity_logical_equivalence}
+		\end{eqnarray}
+		\item \textbf{Distributività:}
+		\begin{eqnarray}
+			\bigl(p \land (q \lor r)\bigr) \iff \bigl((p \land q) \lor (p \land r)\bigr)\\
+			\bigl(p \lor (q \land r)\bigr) \iff \bigl((p \lor q) \land (p \lor r)\bigr)
+		\end{eqnarray}
+	\end{enumerate}
+\end{propbox}
+
+\begin{proof}
+	Per esercizio mostriamo la dimostrazione della proprietà associativa dell'equivalenza logica (\ref{eq:associativity_logical_equivalence}). La dimostrazione delle altre proprietà è lasciata al lettore. La verifica del fatto che la proprietà in questione si tratti di una tautologia è immediata se si osserva la tabella di verità \ref{tab:associativity_equivalence}.
+	
+	\begin{center}
+		\begin{tblr}{
+				hlines = {0.9pt}, vlines = {0.9pt}, colspec = {X[c]X[c]X[c]X[c]X[2,c]X[2,c]},
+				row{1} = {primary!80!white}}
+			$p$ & $q$ & $r$ & $p \iff q$ & $(p \iff q) \iff r$ & $p \iff (q \iff r)$ \\
+			V & V & V & V & V & V \\
+			V & V & F & V & V & V \\
+			V & F & V & F & F & F \\
+			V & F & F & F & F & F \\
+			F & V & V & F & F & F \\
+			F & V & F & F & F & F \\
+			F & F & V & V & V & V \\
+			F & F & F & V & V & V
+		\end{tblr}
+		\captionof{table}{}\label{tab:associativity_equivalence}
+	\end{center}
+	
+	Si noti che $((p \iff q)\iff r)$ risulta vera se e solo se esattamente uno o tutti e tre tra $p$, $q$ ed $r$ risulta vera. 
+\end{proof} 
+
+\begin{osservation}
+	Sull'associatività di $\land$ e $\lor$, si osserva che $(p\land q)\land r$ risulta vera se e solo se sono contemporaneamente vere sia $p$ che $q$ che $r$ (lo stesso vale per $r \land (q \land r)$), mentre $(p \lor q)\lor r$ è vera se e solo se è vera almeno una tra $p$, $q$ ed $r$.
+	\smallskip
+	
+	Più in generale è possibile provare che, qualunque sia l'intero positivo $k$ le forme proposizionale in cui appaiano tutte e sole le variabili $p_{1}, p_{2}, ..., p_{k}$, delle parentesi e, tra i connettivi solo $\land$ (analogamente $\lor$) sono equivalenti tra loro. Per queste forme si può allora rinunciare all'uso delle parentesi e scrivere semplicemente: $$p_{1} \land p_{2} \land p_{3} \land ... \land p_{k}$$ oppure $$\bigwedge_{i=1}^{k}p_{i}$$ per indicare una qualunque di queste forme.
+\end{osservation}
+
+\subsection{Le leggi di De Morgan}\index{De Morgan}
+Quando è che una proposizione della forma $p \land q$ è falsa? Quando (e solo quando) è falsa almeno una tra $p$ e $q$. Questo è evidente dalla tavola di verità che descrive la congiunzione. Dualmente una proposizione della forma $p \lor q$ è falsa precisamente quando sia $p$ che $q$ sono false. Tutto questo è espresso da due tautologie molto importanti, note come \textbf{leggi di De Morgan}.
+
+\begin{propbox}[Leggi di De Morgan]	Siano $p, \ q$ due formule, valgono allora le seguenti tautologie:
+	\begin{eqnarray}
+		\neg (p \land q) &\iff& (\neg p) \lor ( \neg q) \\
+		\neg (p \lor q) &\iff& (\neg p) \land (\neg q)
+	\end{eqnarray}
+\end{propbox}
+
+\begin{proof}
+	Poniamo $\alpha \coloneqq (\neg p) \land (\neg q)$, $\beta \coloneqq (\neg p) \lor (\neg q)$. Abbiamo allora:
+	\begin{center}
+		\begin{tblr}
+			{
+				hlines = {0.9pt},
+				vlines = {0.9pt},
+				cells={mode=math},
+				row{1}={primary!80!white},
+				colspec={X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]}
+			}
+			p & q & p \land q & p \lor q & \neg(p \land q) &\neg(p \lor q)& \alpha & \beta \\
+			V & V & V & V & F & F & F & F\\
+			V & F & F & V & V & F & F & V\\
+			F & V & F & V & V & F & F & V\\
+			F & F & F & F & V & V & V & V
+		\end{tblr}
+	\end{center}
+	Dunque, per negare una disgiunzione si negano i due termini che stiamo disgiungendo e, contemporaneamente, si scambiano tra loro i simboli $\lor$ e $\land$. La negazione di una congiunzione è duale. 
+\end{proof}
+
+\subsection{Le tautologie dell'implicazione}
+
+\begin{propbox}[Tautologia della doppia implicazione]\label{prop:doppia_implicazione}
+	La congiunzione di una implicazione e della corrispondente inversa equivale alla doppia implicazione. Vale cioè la tautologia:
+	\begin{equation}
+		(P \iff Q) \iff \bigl((P \implies Q) \land (P \impliedby Q)\bigr)
+	\end{equation}
+\end{propbox}
+
+\begin{proof} È facile convincersi osservando la seguente tabella di verità:
+	\begin{center}
+		\begin{tblr}
+			{
+				hlines = {0.9pt},
+				vlines = {0.9pt}, 
+				colspec = {X[c]X[c]X[c]X[c]X[c]X[2,c]},
+				row{1} = {primary!80!white}, 
+				cells={mode=math}
+			}
+			p & q & p \iff q & p \implies q & p \impliedby q & (p \implies q) \land (p \impliedby q) \\
+			V & V & V & V & V & V \\
+			V & F & F & F & V & F \\
+			F & V & F & V & F & F \\
+			F & F & V & V & V & V
+		\end{tblr}
+	\end{center}
+	che dimostra l'enunciato.
+\end{proof}
+
+\begin{osservation}\label{oss:condizionenecessariasufficiente}
+	Affermare che una certa proposizione $A$ \textbf{implica} una determinata proposizione $B$ è equivalente a dire che $A$ è una \textbf{condizione sufficiente} per $B$, ovvero che la veridicità di $A$ è sufficiente per garantire la veridicità di $B$. Inoltre, affermare che $A$ implichi $B$, è equivalente a dire che $B$ è una \textbf{condizione necessaria} per $A$, ovvero che la veridicità di $B$ è necessaria per garantire la veridicità di $A$. Il connettivo $ \implies $, a differenza degli altri connettivi binari, non è commutativo. Vale a dire che le forme $P \implies Q $ e $Q \implies P$ non sono equivalenti tra di loro.
+\end{osservation}
+
+\begin{center}
+	\begin{tblr}
+		{
+			hlines = {0.9pt},
+			vlines = {0.9pt},
+			colspec = {X[c]X[c]X[c]X[c]},
+			row{1} = {primary!80!white},
+			row{2-5}={white},
+			cells={mode=math}
+		}
+		P & Q & P \implies Q & Q \implies P \\
+		V & V & V & V \\
+		V & F & F & F \\
+		F & V & V & F \\
+		F & F & V & V
+	\end{tblr}
+	\captionof{table}{Tavola di verità dell'implicazione inversa}\label{tab:impliedby}
+\end{center}
+
+Spesso si scrive ``$P \impliedby Q$'' per ``$Q \implies P$''. Si può considerare questo simbolo ``$\impliedby$'' come un ulteriore connettivo binario (\textbf{implicazione inversa}), definito appunto dall'essere $p \impliedby q$ logicamente equivalente a $q \implies p$  come mostrato nella Tabella \ref{tab:impliedby}
+
+\begin{example}
+	Consideriamo le frasi $p:$``Oggi sto sciando'' e $q:$``Oggi sono in montagna''. Date queste due proposizioni possiamo considerare l'implicazione: ``Se oggi sto sciando allora sono in montagna.'' Questa implicazione è vera, infatti lo stare in montagna è una \textbf{condizione necessaria}\index{Condizione!Necessaria} per poter sciare ma non una condizione sufficiente. Viceversa, lo stare sciando è una \textbf{condizione sufficiente}\index{Condizione!Sufficiente} per dirci che si sta in montagna. Non vale però la formula $q \implies p$. Stare in montagna, infatti, non è sufficiente per affermare che si sta sciando, potrei infatti essere in montagna per fare una passeggiata o per fare escursionismo.
+\end{example}
+
+In generale, quando valgono contemporaneamente le formule ``$(p \implies q) \land (p \impliedby q)$'' possiamo parlare di \textbf{condizioni necessarie e sufficienti}.
+
+\begin{center}
+	\begin{tblr}
+		{
+			hlines = {0.9pt},
+			vlines = {0.9pt},
+			colspec = {X[c]X[c]X[c]},
+			row{1} = {primary!80!white}
+		}
+		$P \implies Q$ & $P \impliedby Q$ & $P \iff Q$ \\
+		Se $p$ allora $q$ & Se $q$ allora $p$ & $p$ se e solo se $q$ \\
+		$p$ solo se $q$ & $p$ se $q$ & $p$ è condizione necessaria e sufficiente per $q$ \\
+		$p$ è condizione sufficiente per $q$ & $p$ è condizione necessaria per $q$&$q$  è condizione necessaria e sufficiente per $p$
+	\end{tblr}
+	\captionof{table}{Le seguenti frasi traducono la formula nell'intestazione}
+\end{center}
+
+\begin{propbox}[Implicazione come disgiunzione]
+	Il connettivo condizionale può essere espresso in termini di altri connettivi. Infatti, vale la seguente tautologia:
+	\begin{equation}\label{eq:implicazione_disgiunzione}
+		(p \implies q) \iff \neg p \lor q
+	\end{equation}
+	che esprime l'implicazione mediante la disgiunzione tra la negazione dell'antecedente e il conseguente.
+\end{propbox}
+
+\begin{proof}
+	La dimostrazione segue direttamente dalle tavole di verità di implicazione e disgiunzione:
+	\begin{center}
+		\begin{tblr}{
+				hlines = {0.9pt}, vlines = {0.9pt}, colspec ={X[c]X[c]X[c]X[c]X[c]},
+				row{1} = {primary!80!white},cells={mode=math}}
+			p & q & (\neg p) \lor q & p \implies q \\
+			V & V & V & V \\
+			V & F & F & F \\
+			F & V & V & V \\
+			F & F & V & V
+		\end{tblr}
+	\end{center}
+	
+	Una implicazione infatti è vera se e solo se il suo antecedente è falso o il suo conseguente è vero. 
+\end{proof}
+
+Da questa tautologia se ne può facilmente dedurre un'altra, la \hypertarget{contrapposizione}{\textbf{legge di contrapposizione}}.
+
+\begin{propbox}[Legge di contrapposizione]\index{Contrapposizione}
+	Siano $p,q$ due proposizioni logiche, vale allora la seguente:
+	\begin{equation}
+		(p \implies q) \iff (\neg q \implies \neg p)
+	\end{equation}
+\end{propbox}
+
+\begin{proof}
+	Il passaggio è il seguente:
+	
+	\begin{align*}
+		p \implies q &\iff (\neg p) \lor q & \text{\textcolor{gray}{(per la tautologia precedente)}}  \\
+		&\iff q \lor (\neg p) & \text{\textcolor{gray}{(per la commutatività di $\lor$)}} \\
+		&\iff \neg(\neg q) \lor (\neg p) & \text{\textcolor{gray}{(per la doppia negazione)}} \\
+		&\iff \neg q \implies \neg p & \text{\textcolor{gray}{(per la tautologia precedente)}}
+	\end{align*}
+\end{proof}
+
+\begin{osservation}
+	La legge di contrapposizione sta alla base del ragionamento per assurdo. Se, negando la tesi, si riesce infatti a dimostrare un fatto che neghi l'ipotesi iniziale (un \textbf{assurdo}) si dimostra allora l'implicazione originale.
+\end{osservation}
+
+Altra tautologia importante è quella che mostra come negare una implicazione. Una implicazione, infatti, è falsa precisamente quando l'\textit{antecedente è vera e falso il conseguente}. Quindi vale la seguente:
+
+\begin{propbox}[Negazione dell'implicazione]\label{prop:negazione_implicazione}
+	Siano $p$ e $q$ due formule proposizionali. Vale:
+	\begin{equation}\label{eq:negazione_implicazione}
+		\neg (p \implies q) \iff p \land \neg q
+	\end{equation}
+\end{propbox}
+
+\begin{proof}
+	La dimostrazione è immediata dalla tavola di verità dell'implicazione:
+	\begin{center}
+		\begin{tblr}{
+				hlines = {0.9pt}, vlines = {0.9pt}, colspec = {X[c]X[c]X[c]X[c]X[c]},
+				row{1} = {primary!80!white},cells={mode=math}}
+			p & q & p \implies q  & ( \neg(p \implies q)) & p \land (\neg q) \\
+			V & V & V & F & F \\
+			V & F & F & V & V \\
+			F & V & V & F & F \\
+			F & F & V & F & F
+		\end{tblr}
+	\end{center}
+\end{proof}
+
+
+Un'altra tautologia di uso frequentissimo è quella della \textbf{transitività dell'implicazione}. Essa afferma che se $p \implies q$ e $q \implies r$ sono entrambe vere, allora anche $p \implies r$ è vera. In altre parole, se $p$ è una condizione sufficiente per $q$ e $q$ è una condizione sufficiente per $r$, allora $p$ è una condizione sufficiente per $r$.
+
+\begin{propbox}[Transitività dell'implicazione]
+	Siano $p, \ q,\ r$ tre formule proposizionali, vale:
+	\begin{equation}\label{eq:implication-transitivity}
+		\bigl((p \implies q) \land (q \implies r)\bigr) \implies (p \implies r)
+	\end{equation}
+\end{propbox}
+
+\begin{proof}
+	La dimostrazione è immediata dalla tavola di verità dell'implicazione. 
+	
+	Posto $\alpha \coloneqq (p \implies q) \land (q \implies r)$ e $\beta \coloneqq \bigl((p \implies q) \land (q \implies r)\bigr) \implies (p \implies r)$, abbiamo:
+	
+	\begin{center}
+		\begin{tblr}{
+				hlines = {0.9pt},
+				vlines = {0.9pt},
+				colspec = {cccccX[2,c]cX[4,c]},row{1} = {primary!80!white},cells={mode=math}}
+			p & q & r & p \implies q & q \implies r & \alpha & (p \implies r) &  \beta \\
+			V & V & V & V & V & V & V & V\\
+			V & V & F & V & F & F & F & V\\
+			V & F & V & F & V & F & V & V\\
+			V & F & F & F & V & F & F & V\\
+			F & V & V & V & V & V & V & V\\
+			F & V & F & V & F & F & V & V\\
+			F & F & V & V & V & V & V & V\\
+			F & F & F & V & V & V & V & V
+		\end{tblr}
+	\end{center}
+	
+	
+	Un modo alternativo per dimostrare la transitività dell'implicazione è il seguente: provare che la formula~\ref{eq:implication-transitivity} non può risultare falsa in nessun caso. Perché la formula sia falsa occorre che sia vero l'antecedente $((p \implies q) \land (q \implies r))$ e falso il conseguente $(p \implies r)$. La prima condizione significa che sono vere $(p \implies q)$ e $(q \implies r)$ per via del connettivo $\land$, la seconda che sia vera $p$ e falsa $r$.
+	
+	Ora, assumendo queste condizioni, sono in particolare vere $p$ e $q$ (se $p$ fosse vera e $q$ falsa allora $p \implies q$ non sarebbe potuta essere vera). Quindi, se la nostra formula è falsa, risultano vere $p$ e $q$, ma falsa $r$. Tuttavia, in questo caso, $q \implies r$ è falsa, mentre si era detto che, perché la formula sia falsa, $q \implies r$ deve essere vera. Questo ragionamento porta così ad una contraddizione che mostra che la formula considerata, cioè: $$((p \implies q) \land (q \implies r)) \implies (p \implies r)$$ non può essere falsa in nessun caso, quindi la \ref{eq:implication-transitivity} è una tautologia.
+\end{proof}
+
+L'idea esemplificata da questa dimostrazione consiste in questo: imporre che una implicazione sia falsa fornisce immediatamente due informazioni: il valore di \textit{verità dell'antecedente} ed il \textit{valore di verità del conseguente}. Dunque può essere conveniente, nello studiare una implicazione, analizzare subito le conseguenze nell'ipotesi che essa sia falsa.
+
+Dalla transitività dell'implicazione e dalla tautologia della doppia implicazione si possono dedurre molte altre tautologie che coinvolgono i connettivi $\implies$,$\impliedby$ e $\iff$, come ad esempio la \textbf{transitività dell'equivalenza}.
+
+\begin{propbox}[Transitività dell'equivalenza]
+	Siano $p,q,r$ tre proposizioni, vale allora:
+	\begin{equation}
+		\bigl((p \iff q) \land (q \iff r)\bigr) \implies (p \iff r)
+	\end{equation}
+\end{propbox}
+
+\begin{propbox}[Negazione di $\iff$]
+	Vale questa utilissima serie di tautologie, che si possono esprimere come catena di equivalenze:
+	\begin{eqnarray}
+		(\neg(p \iff q)) &\iff& (\neg p \iff q) \label{eq:negation-implication}\\
+		&\iff& (p \iff \neg q) \label{eq:negation-implication-2}\\
+		&\iff& (p \xor q) \label{eq:negation-implication-3}
+	\end{eqnarray}
+\end{propbox}
+
+Le quattro forme proposizionali sono a due a due logicamente equivalenti. Ciascuna di esse è vera quando e solo quando $p$ e $q$ hanno diversi valori di verità. La dimostrazione è lasciata al lettore come esercizio.
+
+\subsection{Tautologie dello XOR}
+Grazie a questa proposizione è possibile dimostrare la \textbf{proprietà associativa della disgiunzione esclusiva} (Formula \ref{eq:associativity_xor}):
+
+\begin{propbox}[Associatività di $\xor$]
+	Siano $p,q,r$ tre proposizioni. Allora vale la seguente tautologia:
+	\begin{equation}\label{eq:associativity_xor}
+		\bigl((p \xor q) \xor r\bigr) \iff \bigl(p \xor (q \xor r)\bigr)
+	\end{equation}
+\end{propbox}
+
+\begin{proof}
+	Consideriamo la seguente catena di equivalenze:
+	\begin{align*}
+		p \iff ( q \iff r) &\iff  \neg\bigl(\neg(p \iff (q \iff r))\bigr) & \textcolor{gray}{\text{(per la tautologia della doppia negazione)}} \\
+		&\iff  \neg\bigl(p \iff (\neg(q \iff r))\bigr) & \textcolor{gray}{\text{(per la formula~\ref{eq:negation-implication})}}\\
+		&\iff \neg\bigl(p \iff (q \xor r)\bigr) & \textcolor{gray}{\text{(per la formula~\ref{eq:negation-implication-3})}}\\
+		&\iff  p \xor ( q \xor r) & \textcolor{gray}{\text{(per la formula~\ref{eq:negation-implication-3})}}\\
+	\end{align*}
+	Allo stesso modo si verifica la tautologia:
+	\begin{equation}\label{eq:xor2}
+		\bigl((p \xor q)\xor r\bigr)\iff \bigl((p \iff q) \iff r\bigr)
+	\end{equation}
+	Da queste due, e dall'associatività di $\iff$ si ricava la tautologia che volevamo provare.
+\end{proof}
+
+Altre due facili tautologie che riguardano la disgiunzione esclusiva sono espresse nella seguente catena di implicazioni che dimostrano l'esplicitazione del connettivo $\xor$ in termini di altri connettivi:
+
+\begin{propbox}[Esplicitazione del connettivo $\xor$]
+	Valgono le seguenti equivalenze:
+	\begin{eqnarray}
+		(p \xor q) &\iff& \bigl(p \land \neg(q)\bigr) \lor \bigl(q \land \neg(p)\bigr) \label{eq:exclusive-or-1}\\
+		&\iff& (p \lor q) \land \bigl(\neg(p) \lor \neg(q)\bigr) \label{eq:exclusive-or-2}
+	\end{eqnarray}
+\end{propbox}
+\begin{proof}
+	Queste equivalenze si provano facilmente osservando che, evidentemente, sia
+	$(p \land( \neg q)) \lor (q \land (\neg p))$ che $(p \lor q) \land ( \neg(p \land q))$ sono vere se e solo se esattamente una tra le proposizioni $p$ e $q$ è vera.
+\end{proof}
+
+\begin{propbox}[Distributività di $\land$ rispetto a $\xor$]
+	Siano $a,b,c$ proposizioni logiche, vale allora:
+	\begin{equation}\label{eq:distributività_congiunzione_xor}
+		a \land (b \xor c) \iff (a \land b) \xor (a \land c)
+	\end{equation}
+\end{propbox}
+
+\begin{proof} 
+	Per dimostrare la Formula \ref{eq:distributività_congiunzione_xor} senza usare tavole di verità possiamo usare le tautologie algebriche degli operatori logici visti finora. Abbiamo quindi:
+	\begin{align*}
+		a \land (b \xor c) &\iff a \land \bigl((b \land \neg c ) \xor (\neg b \land c)\bigr) & \text{\textcolor{gray}{Per la tautologia \ref{eq:exclusive-or-1}}} \\
+		&\iff \bigl(a \land (b \land \neg c) \bigr) \lor \bigl(a \land (\neg b \land c)\bigr) & \text{\textcolor{gray}{Per la distributività di $\land$ rispetto a $\lor$}} \\
+		&\iff (a \land b \land \neg c) \lor (a \land \neg b \land c) & \text{\textcolor{gray}{Semplificando}}
+	\end{align*}
+	Ora consideriamo l'espansione a destra della Formula \ref{eq:distributività_congiunzione_xor} che dobbiamo dimostrare essere uguale:
+	\begin{align*}
+		(a \land b) \xor (a \land c) &\iff \bigl((a \land b) \land \neg(a \land c)\bigr) \lor \bigl(\neg(a \land b) \land (a \land c)\bigr) \\
+		&\iff \bigl((a \land b) \land (\neg a \lor \neg c)\bigr) \lor \bigl((\neg a \lor \neg b) \land (a \land c)\bigr) \\
+		&\iff \bigl((a \land b \land \neg a) \lor (a \land b \land \neg c)\bigr) \lor \bigl((\land a \land a \land c) \lor (\neg b \land a \land c)\bigr) \\
+		&\iff (a \land b \land \neg c) \lor (a \land \neg b \land c)
+	\end{align*}
+	Notiamo ora che entrambi i lati dell'equazione sono uguali e la dimostrazione può dirsi conclusa.
+\end{proof}
+
+\section{I quantificatori}\index{Quantificatore}
+
+\subsection{Formule e quantificatori}
+Consideriamo la formula ``$x>1$'' del linguaggio naturale. Questa formula, pur avendo un senso compiuto, non è una \textbf{proposizione}, ovvero non è possibile determinare per essa un valore di verità. Espressioni del genere possono essere generalizzate nel modo seguente: \[\varphi(x):\mbox{``Espressione della variabile $x$"}\]
+E così via:
+\begin{displaymath}
+	\varphi(x_{1},...,x_{n}) : \mbox{``Espressione delle variabili $x_{1},...,x_{n}$"}
+\end{displaymath}
+
+Di conseguenza, nel caso di $\varphi(x):``x>1"$ se $x=3$ allora $\varphi(3)=``3>1"$ che è una proposizione, in particolare vera. Da questo breve esempio possiamo estendere la nozione di verità, valutando la formula per ciascuno dei valori che possono essere \emph{sostituiti} alla variabile $x$.
+
+\begin{defbox}{Formula valida}
+	Una formula che risulta vera per ogni possibile sostituzione delle variabili si dice \textbf{valida}.
+\end{defbox}
+La nozione di sostituzione permette di introdurre due nuovi simboli logici che svolgono un ruolo centrale nel \textbf{calcolo dei predicati}. Questi simboli sono i \textbf{quantificatori}.
+
+\begin{defbox}{Quantificatore universale}\index{Quantificatore!Universale}
+	Se $\varphi$ è una formula ed $x$ è una variabile allora anche ``$\forall x(\varphi)$'' è una formula, chiamata \textbf{formula universale} e si legge ``per ogni $x$, $\varphi$ è vera''. Questa formula esprime la contemporanea affermazione di tutte le formule $\varphi(a)$ ottenute sostituendo ad $x$ ogni possibile valore $a$.
+	Il simbolo $\forall$ prende il nome di \textbf{quantificatore universale}.
+\end{defbox}
+
+\begin{osservation}
+	Sono equivalenti le forme: $\forall x \ \bigl( \varphi(x) \bigr)$ e $\forall x(\varphi)$. A volte, per esplicitare la parte del quantificatore si usa racchiuderlo tra parentesi tonde: $(\forall x) (\varphi(x))$.
+\end{osservation}
+
+\begin{example}
+	Sia $\varphi : x > 3$ e sia l'universo del discorso ristretto all'insieme dei numeri naturali, allora scrivere ``$\forall x \bigl(\varphi(x)\bigr)$'' equivale a dire ``per ogni numero naturale $x$, questo è maggiore di 3'' che ovviamente è falso.
+\end{example}
+
+\begin{osservation}
+	Il quantificatore universale può essere visto\footnote{La congiunzione però non può operare su un numero infinito di proposizioni mentre il quantificatore si.} come una sequenza di proposizioni collegate tra di loro con un connettivo di congiunzione.
+\end{osservation}
+
+Se le formule universali possono essere pensate come una sorta di congiunzione generalizzata, le \textbf{formule esistenziali}, cioè quelle del tipo ``$\exists x(\varphi)$'' (che si legge ``esiste un $x$ tale che $\varphi$ è vera'') possono essere pensate come disgiunzioni generalizzate.
+
+\begin{defbox}{Quantificatore esistenziale}\index{Quantificatore!Esistenziale}
+	Se $x$ è una variabile e $\varphi = \varphi(x)$ una formula, $\exists x(\varphi)$ esprime l'affermazione di \textit{almeno una} tra le formule $(\varphi(a))$ ottenute sostituendo ad $x$ ogni possibile valore $a$.
+	Il simbolo $\exists$ prende il nome di \textbf{quantificatore esistenziale}.
+\end{defbox}
+
+Oltre a $\forall$ e $\exists$ esistono altri quantificatori. Quello di uso più frequente è $\exists!$. Se $\varphi$ è una formula ed $x$ è una variabile, la formula ``$\exists!x(\varphi)$'' si legge ``esiste uno ed un solo $x$ tale che $\varphi$'' ed afferma $\varphi(a)$ per uno dei possibili valori $a$ che possono essere sostituiti ad $x$, negando $\varphi(b)$ per ogni $b$ diverso da a. In modo più sintetico e più formale, se $y$ è una variabile (diversa da $x$) che non appare in $\varphi$, questo quantificatore è definito dall'equivalenza:
+\begin{equation}
+	\exists! x(\varphi(x)) \ \iff \ \exists x(\forall y(\varphi(y)\iff y=x))
+\end{equation}
+
+Siano $\varphi$ una formula e $x,y$ due variabili, e assumiamo che $y$ non appaia in $\varphi$. Se chiamiamo $\psi(x,y)$ la formula $$\varphi(y) \iff y=x$$possiamo riscrivere l'equivalenza come:
+\begin{displaymath}
+	\exists! x(\varphi(x)) \ \iff \ \exists x(\forall y(\psi(x,y)))
+\end{displaymath}
+
+Vogliamo esaminare il membro a destra di questa equivalenza. Supponiamo che $\varphi$ sia un predicato unario in $x$, quindi che $\exists x (\forall y (\psi(x,y)))$ sia una proposizione. Quando è che questa proposizione è vera? Esattamente quando esiste almeno un $a$ per il quale sia vera la formula $\forall y(\phi(a,y))$; questo equivale a dire che è vera $\psi(a,b)$, cioè la formula $\varphi(b) \iff b=a$, per ogni possibile scelta di $b$.
+
+Tra le possibili scelte per $b$ c'è anche $a$; la formula diventa in questo caso particolare $\varphi(a) \iff a = a$. Poiché $a=a$ è vera, questa equivale a $\varphi(a)$. Se invece scegliamo come $b$ un qualsiasi oggetto diverso da $a$, allora $b=a$ è falsa, quindi $\varphi(b)\iff b=a$ equivale alla negazione di $\varphi(b)$.
+
+In definitiva, abbiamo mostrato che la formula $\exists x(\forall y(\psi(x,y)))$ è vera se e solo se esiste un $a$ per il quale è vera $\varphi(a)$ e, contemporaneamente, è falsa $\varphi(b)$ per ogni $b$ diverso da $a$. Questo è precisamente quello che si vuole esprimere con il quantificatore $\exists!$.
+
+\subsection{Occorrenze libere e vincolate}
+In una formula come:
+\[
+\forall x \bigl( \ldots \bigr)
+\]
+o come
+\[
+\exists x \bigl( \ldots \bigr)
+\]
+si dice che le \textit{occorrenze} della variabile $x$ all'interno dello \textit{scope del quantificatore} (ovvero la parte della formula logica o del programma in cui il quantificatore è efficace) sono \textbf{vincolate}\index{Occorrenza!Vincolata} dal quantificatore $\forall$ o dal quantificatore $\exists$.
+
+\begin{defbox}{Occorrenza libera}
+	Una variabile che non è vincolata da alcun quantificatore si dice ad \textbf{occorrenza libera}\index{Occorrenza!Libera}.
+\end{defbox}
+
+\begin{example}
+	Nella definizione appena data di occorrenze libere e vincolate si intende il fatto che ogni quantificatore può vincolare solo le occorrenze delle variabili che lo seguono immediatamente. In $\forall x (x=y)$ il quantificatore vincola solo le occorrenze della variabile $x$ mentre le occorrenze della variabile $y$ sono libere.
+\end{example}
+
+\begin{example}
+	Sono vincolate le occorrenze di $x$ in $\forall x(x+1>x) \land (\exists x(x>y))$, mentre nella stessa formula è libera l'occorrenza di $y$.
+\end{example}
+
+\begin{example}
+	In una stessa formula possono esserci sia occorrenze libere che vincolate di una stessa variabile. Ad esempio in $(\forall x(x+1>x))\lor(x=0)$ l'ultima occorrenza di $x$ è libera perché fuori dallo scope di ogni quantificatore.
+\end{example}
+
+\begin{defbox}{Formula chiusa}
+	Una formula si dice \textbf{chiusa}\index{Formula!chiusa} se e solo se non contiene variabili con occorrenze libere.
+\end{defbox}
+
+\begin{example}
+	Formule del tipo $\exists x(x>y)$ non sono proposizioni a causa della presenza di variabili libere. Quindi non hanno un valore di verità. Per poter attribuire un valore di verità bisogna prima ``quantificare" le variabili libere che vi appaiono facendo opportune modifiche.
+\end{example}
+
+\subsection{Sostituzioni}\index{Sostituzione}
+Per quanto riguarda le \textit{sostituzioni} invece va detto che queste coinvolgono solo e soltanto le \textit{occorrenze delle variabili libere presenti}.
+
+\begin{example}
+	Sia ``$\varphi(x) : x > 1$'' e consideriamo la sostituzione $\varphi(5)$ ottenuta eseguendo la sostituzione della variabile $x$ con il simbolo $5$. Si ottiene quindi la formula ``$5 > 1 $'' che ha un proprio valore di verità. Consideriamo adesso la formula ``$\psi(x) : (\forall x) (x>1)$'' dove è presente una occorrenza vincolata della variabile $x$. Provando ad eseguire la sostituzione di tutte le occorrenze della variabile $x$ con il simbolo 5 si ottiene ``$ \psi(5) : \forall 5 (5>1)$'' che è una formula priva di senso.
+\end{example}
+
+È buona norma scrivere le formule in modo che le variabili appaiano solo in forma libera o vincolata. Inoltre, cambiando il nome di una variabile vincolata, se non è presente anche in forma di occorrenza libera nella formula, allora la formula non cambia il suo valore di verità.
+
+\subsection{Predicati}\index{Predicato}
+
+\begin{defbox}{Predicato}
+	Un \textbf{predicato unario}\index{Predicato!unario} nella variabile $x$ è una formula che \textit{non contiene} occorrenze libere di variabili diverse da $x$. Similmente, si dice che la formula $\varphi$ è un \textbf{predicato binario} quando in essa appaiono al più due variabili con occorrenze libere.
+\end{defbox}
+
+\begin{example}
+	La formula $x=x$ è un predicato unario nella variabile $x$ in quanto è una formula in cui occorre una sola variabile libera che è $x$. La formula $x=y$ è un predicato binario in quanto è una formula in cui occorrono due variabili libere che sono $x$ e $y$.
+\end{example}
+
+\subsection{I quantificatori ristretti}\index{Quantificatore!Ristretto}
+Nella pratica matematica si incontrano spesso espressioni del tipo:
+\[
+(\forall x \in \mathbb{R})(\alpha(x))
+\]
+oppure:
+\[
+(\exists x>0)(\varphi)
+\]
+in cui il quantificatore è accompagnato da una condizione che ``limita'' l'ambiente in cui la variabile può assumere valori. Queste formule sono abbreviazioni\footnote{Anche detto allargamento del linguaggio} di formule in cui i quantificatori sono usati nel metodo tradizionale. La prima formula può essere definita in questo modo:
+\[
+(\forall x \in \mathbb{R})(\alpha(x)) : \iff \forall x (x \in \mathbb{R} \implies \alpha(x))
+\]
+\begin{example}
+	Quando ci si trova davanti a formule del tipo
+	\[
+	\begin{array}{lc}
+		\forall x \in \varnothing \; (x = x) \\
+		\forall x \in \varnothing \;(x \neq x)
+	\end{array}
+	\]
+	si stanno abbreviando formule del tipo:
+	\[
+	\begin{array}{lc}
+		\forall x( x \in \varnothing \implies x=x) \\
+		\forall x(x \in \varnothing \implies x \neq x) \\
+	\end{array}
+	\]
+	che risultano sempre vere in quanto implicazioni con antecedente falso.
+\end{example}
+
+Espressioni come $(\exists x \in S) (\varphi(x))$ abbreviano invece formule del tipo $\exists x (x \in S \land \varphi(x))$ e qui non dovrebbero esserci difficoltà: ``esiste $x$ in S tale che $\ldots$'' significa proprio che ``esiste $x$ tale che $x$ sia in S e $\ldots$ ''. Ovviamente, nella solita ipotesi che $\varphi$ sia un predicato unario in $x$, questa formula è sicuramente una proposizione falsa quando $S = \varnothing$.
+
+\subsection{Regole di manipolazione dei quantificatori}
+In matematica è molto comune trovare delle formule al cui interno sono presenti quantificatori annidati come segue:
+\[
+\begin{array}{lc}
+	\forall x ( \forall y (\forall z ( \cdots ) ) ) \\
+	\exists x ( \exists y (\exists z (\cdots )))\\
+\end{array}
+\]
+In questi casi è comodo abbreviare usando una notazione compatta del tipo:
+\[
+\begin{array}{lc}
+	\forall x,y,z ( \cdots ) \quad \mbox{ al posto di } \quad \forall x ( \forall y (\forall z ( \cdots ) ) ) \\
+	\exists x,y,x (\cdots ) \quad \mbox { al posto di } \quad \exists x ( \exists y (\exists z (\cdots )))\\
+\end{array}
+\]
+Le cose cambiano quando troviamo annidati sia il quantificatore esistenziale che quello universale. Le formule ``$\forall x (\exists y (\varphi))$" e ``$\exists y (\forall x (\varphi))$" non sono in generale equivalenti e non possono essere scambiate a proprio piacimento. La prima afferma che, scelto comunque un termine $a$, ne esiste almeno uno, $b$, dipendente, in generale, dalla scelta di $a$ per il quale si abbia $\varphi(a,b)$. La seconda afferma qualcosa di più: che si ha la stessa situazione ma, questa volta, si può scegliere $b$ indipendentemente dalla scelta di $a$: esiste un particolare $b$ per il quale sia abbia $\varphi(a,b)$ per ogni possibile scelta di $a$. Dunque vale sempre l'implicazione:
+\begin{displaymath}
+	\exists y \bigl( \forall x (\varphi) \bigr) \implies \forall x \bigl( \exists y (\varphi)\bigr)
+\end{displaymath}
+ma, in generale, non vale l'implicazione inversa.
+
+\begin{example}
+	Nel linguaggio dell'aritmetica, sia $\varphi(x,y)$ la formula $x<y$. La prima delle nostre formule diventa:
+	\begin{displaymath}
+		\forall x (\exists y (x<y))
+	\end{displaymath}
+	che afferma che per ogni numero esiste un numero più grande. Questa è una proposizione vera: se $a$ è un numero intero, $a+1$ è un numero intero maggiore di $a$, quindi $\varphi(a,a+1)$ è vera. La seconda formula è invece:
+	\begin{displaymath}
+		\exists y (\forall x (x < y))
+	\end{displaymath}
+	che afferma che esiste un intero (quello che andrebbe sostituito ad $y$) maggiore di tutti gli interi; questa è una proposizione falsa.
+\end{example}
+
+\subsection{Negazione dei quantificatori}
+\begin{propbox}\label{prop:negazione_quantificatori}
+	Valgono le seguenti equivalenze logiche:
+	\begin{eqnarray}
+		\neg(\forall x (\varphi(x))) \iff (\exists x (\neg \varphi(x))) \label{eq:negazione_universale}\\
+		\neg(\exists x (\varphi(x))) \iff (\forall x (\neg \varphi(x))) \label{eq:negazione_esistenziale}
+	\end{eqnarray}
+\end{propbox}
+\begin{proof}
+	Lasciata al lettore come esercizio.
+\end{proof}
+
+Queste regole valgono in maniera analoga per i quantificatori ristretti con le dovute osservazioni:
+\begin{eqnarray*}
+	\neg(\forall x \in S(\varphi(x))) &\iff & \neg (\forall x (x \in S \implies \varphi(x)))  \\
+	&\iff & \exists x (\neg (x \in S\implies \varphi(x))) \\
+	&\iff & \exists x (x \in S \land \neg \varphi(x))
+\end{eqnarray*}
+Analogamente:
+\begin{eqnarray*}
+	\neg (\exists x \in S(\varphi(x))) &\iff & \neg(\exists x( x \in S \land \varphi(x)))  \\
+	&\iff & \forall x (\neg(x\in S \land \varphi(x))) \\
+	&\iff & \forall x (\neg (x \in S) \lor (\neg \varphi(x)))
+\end{eqnarray*}
+\begin{propbox}
+	La negazione di $\exists!$ è data dalla seguente equivalenza:
+	\begin{equation}
+		\neg\Bigl(\exists x\bigl(\forall y (\varphi y) \iff x=y\bigr)\Bigr) \iff
+		\forall x \Bigl(\exists y \bigl(\neg (\varphi(y) \iff x=y)\bigl)\Bigr)
+	\end{equation}
+\end{propbox}
+
+\begin{proof}
+	Banale.
+\end{proof}
+\newpage
+\section{Esercizi svolti}
+\begin{exsbox}
+	Scrivere le tavole di verità di ciascuna delle forme proposizionali:
+	\begin{itemize}
+		\item ``$p \land p$''
+		\item ``$(\neg p)\land q$''
+	\end{itemize}
+\end{exsbox}
+
+\paragraph*{Svolgimento.}
+\begin{center}
+		\begin{tblr}{hlines = {0.9pt}, vlines = {0.9pt},row{1}={primary!80!white},colspec={X[c]X[c]X[c]},cells={mode=math}}
+			p & p & p \land p \\
+			V & V & V \\
+			F & F & F \\
+		\end{tblr}
+\end{center}
+\begin{center}
+		\begin{tblr}{hlines = {0.9pt}, vlines = {0.9pt},row{1}={primary!80!white},colspec={X[c]X[c]X[c]X[c]},cells={mode=math}}
+			p & q & \neg p & (\neg p) \land q \\
+			V & V & F & F\\
+			V & F & F & F\\
+			F & V & V & V\\
+			F & F & V & F
+		\end{tblr}
+\end{center}
+\begin{flushright}
+	\blacksquare
+\end{flushright}
+
+\begin{exsbox}
+	Scrivere le tavole di verità delle forme proposizionali
+	\begin{enumerate}
+		\item ``$p \land(q \land r)$''
+		\item ``$p \land (q \land(\neg r))$''
+	\end{enumerate}
+\end{exsbox}
+
+\paragraph*{Svolgimento.}
+\begin{center}
+		\begin{tblr}{hlines, vlines,row{1}={primary!80!white},colspec={X[c]X[c]X[c]X[c]X[2,c]},cells={mode=math}}
+			p & q & r & q \land r & p \land (q \land r) \\
+			V & V & V & V & V \\
+			V & V & F & F & F \\
+			V & F & V & F & F \\
+			V & F & F & F & F \\
+			F & V & V & V & F \\
+			F & V & F & F & F \\
+			F & F & V & F & F \\
+			F & F & F & F & F
+		\end{tblr}
+\end{center}
+
+\begin{center}
+\begin{tblr}{hlines = {0.9pt}, vlines = {0.9pt},row{1}={primary!80!white},colspec={X[c]X[c]X[c]X[c]X[2,c]X[3,c]},cells={mode=math}}
+			p & q & r & \neg r & q \land (\neg r) & p \land \bigl(q \land (\neg r)\bigr) \\
+			V & V & V & F & F & F \\
+			V & V & F & V & V & V \\
+			V & F & V & F & F & F \\
+			V & F & F & V & F & F \\
+			F & V & V & F & F & F \\
+			F & V & F & V & V & F \\
+			F & F & V & F & F & F \\
+			F & F & F & V & F & F
+		\end{tblr}
+\end{center}
+
+\begin{flushright}
+	\blacksquare
+\end{flushright}
+\begin{exsbox}
+	Scrivere le tavole di verità di ciascuna delle forme proposizionali:
+	\begin{itemize}
+		\item ``$p \land ( p \lor q)$''
+	\end{itemize}
+\end{exsbox}
+\paragraph*{Svolgimento.}
+\begin{center}
+	\begin{tblr}{hlines = {0.9pt}, vlines = {0.9pt},row{1}={primary!80!white},colspec={X[c]X[c]X[c]X[c]},cells={mode=math}}
+		p & q & p \lor q & p \land (p \lor q) \\
+		V & V & V & V \\
+		V & F & V & V \\
+		F & V & V & F \\
+		F & F & F & F
+	\end{tblr}
+\end{center}
+\begin{flushright}
+	\blacksquare
+\end{flushright}
+\begin{exsbox}
+	Scrivere le tavole di verità di ciascuna delle forme proposizionali:
+	\begin{itemize}
+		\item $p \lor (p \land q)$
+		\item $p \implies (\neg p)$
+		\item $p \land (\neg q) \land r$
+	\end{itemize}
+\end{exsbox}
+\paragraph{Svolgimento.} Abbiamo:
+\begin{center}
+	\begin{tblr}{hlines = {0.9pt}, vlines = {0.9pt},row{1}={primary!80!white},colspec={X[c]X[c]X[c]X[c]},cells={mode=math}}
+		p & q & (p \land q) & p \lor (p \land q)\\
+		V & V & V  & V \\
+		V & F & V  & V\\
+		F & V & F  & F\\
+		F & F & F & F
+	\end{tblr}
+\end{center}
+\begin{center}
+	\begin{tblr}{hlines = {0.9pt}, vlines = {0.9pt},row{1}={primary!80!white},colspec={X[c]X[c]X[c]},cells={mode=math}}
+		p & \neg p & (p \implies \neg p)\\
+		V & F & F  \\
+		F & V & V
+	\end{tblr}
+\end{center}
+\begin{center}
+	\begin{tblr}{hlines = {0.9pt}, vlines = {0.9pt},row{1}={primary!80!white},colspec={X[c]X[c]X[c]X[c]X[c]},cells={mode=math}}
+		p & q & r & \neg q & p \land (\neg q) \land r \\
+		V & V & V & F & F \\
+		V & V & F & F & F \\
+		V & F & V & V & V \\
+		V & F & F & V & F \\
+		F & V & V & F & F \\
+		F & V & F & F & F \\
+		F & F & V & V & F \\
+		F & F & F & V & F
+	\end{tblr}
+\end{center}
+\hfill \blacksquare
+\begin{exsbox}
+	Definiamo il connettivo \textbf{NAND} tra due proposizioni $p$ e $q$, $p \uparrow q$ come $\neg(p \land q)$. Decidere se la forma proposizionale $(p \uparrow ( q \uparrow r)) \iff ((p \uparrow q)\uparrow r)$ è una tautologia.
+\end{exsbox}
+\paragraph*{Svolgimento.}È possibile dimostrare che tale formula non è una tautologia costruendo le tavole di verità. Si ha:
+
+\begin{center}
+		\begin{tblr}{hlines = {0.9pt}, vlines = {0.9pt},row{1}={primary!80!white},colspec={X[c]X[c]X[c]X[c]X[2,c]},cells={mode=math}}
+			p & q & r & q \uparrow r & p \uparrow (q \uparrow r) \\
+			V & V & V & F & V \\
+			V & V & F & V & F \\
+			V & F & V & V & F \\
+			V & F & F & V & F \\
+			F & V & V & F & V \\
+			F & V & F & V & V \\
+			F & F & V & V & V \\
+			F & F & F & V & V
+		\end{tblr}
+\end{center}
+\begin{center}
+		\begin{tblr}{hlines = {0.9pt}, vlines = {0.9pt},row{1}={primary!80!white},colspec={X[c]X[c]X[c]X[c]X[2,c]},cells={mode=math}}
+			p & q & r & p \uparrow q & (p \uparrow q) \uparrow r \\
+			V & V & V & F & V \\
+			V & V & F & F & V \\
+			V & F & V & V & F \\
+			V & F & F & V & V \\
+			F & V & V & V & F \\
+			F & V & F & V & V \\
+			F & F & V & V & F \\
+			F & F & F & V & V
+		\end{tblr}
+\end{center}
+È possibile raggiungere lo stesso risultato ponendo $\alpha \coloneqq (p \uparrow ( q \uparrow r))$ e $\beta \coloneqq ((p \uparrow q)\uparrow r)$ e supporre che $\alpha$ sia falsa. Essendo $p \uparrow q \iff \neg(p \land q)$ si ha che $p \uparrow q$ è falsa se sono vere entrambe le proposizioni $p$ e $q$. Allora $\alpha$ è falsa se e solo se $p$ e $q \uparrow r$ sono entrambe vere. Se $q \uparrow r$ è vera, allora almeno una tra $q$ e $r$ è falsa. Se $q$ è falsa, allora $p \uparrow q$ è vera, dunque $\beta$ è vera. Se $r$ è falsa, allora $q \uparrow r$ è vera, dunque $\beta$ è vera. In entrambi i casi $\beta$ è vera, dunque $\alpha \iff \beta$ non è una tautologia. \hfill \blacksquare
+\begin{exsbox}
+	Scrivere le tavole di verità di ciascuna delle forme proposizionali: ``$p \implies (p \lor q)$'', ``$(p \land q) \implies r$'', ``$(p \land q) \iff r$''.
+\end{exsbox}
+\paragraph*{Svolgimento.} Possiamo costruire, per semplicità, una singola tabella per il calcolo delle tre proposizioni. Si ha quindi:
+\begin{center}
+	\begin{tblr}{hlines, vlines,row{1}={primary!80!white},colspec={X[c]X[c]X[c]X[c]X[c]X[2,c]X[2,c]X[2,c]},cells={mode=math}}
+		p & q & r & p \land q & p \lor q & p \implies (p \lor q) & (p \land q) \implies r & (p \land q) \iff r \\
+		V & V & V & V & V & V & V & V \\
+		V & V & F & V & V & V & F & F \\
+		V & F & V & F & V & V & V & F \\
+		V & F & F & F & V & V & V & V \\
+		F & V & V & F & V & V & V & F \\
+		F & V & F & F & V & V & V & V \\
+		F & F & V & F & F & V & V & F \\
+		F & F & F & F & F & V & V & V
+	\end{tblr}
+\end{center}
+\begin{flushright}
+	\blacksquare
+\end{flushright}
+\begin{exsbox}
+	Verificare se $(t \land (\neg v) \lor m) \iff (t \land (v \implies m))$.
+\end{exsbox}
+\paragraph{Svolgimento.} Dimostriamo costruendo la tavola di verità:
+\begin{center}
+	\begin{tblr}{hlines = {0.9pt}, vlines = {0.9pt},row{1}={primary!80!white},cells={mode=math},colspec={X[c]X[c]X[c]X[c]X[c]}}
+		t & v & m & t \land (\neg v) \lor m & t \land (v \implies m) \\
+		V & V & V & V & V \\
+		V &V &F & F & F \\
+		V & F & V & V & V \\
+		V & F & F & V & V \\
+		F & V & V & F & F \\
+		F & V & F & F & F \\
+		F & F & V & F & F \\
+		F & F & F & F & F
+	\end{tblr}
+\end{center}
+Confrontando le colonne si ha l'asserto. \hfill \blacksquare
+\begin{exsbox}
+	Stabilire i valori di verità delle formule e frasi (assumiamo nota la matematica elementare coinvolta): ``$(1+1=0)\land(0+0=0)$''; ``$(1+1=0) \lor (0+0=0)$''; ``$(1+1=0)\implies (0+0=0)$''; ``$\sqrt{2}$ è un numero razionale o un numero irrazionale''; ``$2^{5}=32 \implies 47-1=46$''.
+\end{exsbox}
+\paragraph*{Svolgimento.}
+\begin{enumerate}
+	\item ``$(1+1=0)\land(0+0=0)$'' risulta vera in quanto falsa l'antecedente.
+	\item ``$(1+1=0) \lor (0+0=0)$'' risulta vera;
+	\item ``$(1+1=0) \implies (0+0=0)$'' risulta vera;
+	\item ``$\sqrt{2}$ è un numero razionale o un numero irrazionale'' è vera;
+	\item  ``$2^{5}=32 \implies 47-1=46$'' è vera.
+\end{enumerate}
+\begin{flushright}
+	\blacksquare
+\end{flushright}
+
+\begin{exsbox}
+	È molto importante saper ``tradurre'' espressioni del linguaggio ordinario (della lingua italiana) in linguaggio ``semiformalizzato'', riconoscendo la presenza ed il ruolo dei connettivi proposizionali contenuti nelle frasi. Ad esempio, se indichiamo con $\alpha$ la frase ``domani pioverà'' e con $\beta$ la frase ``domani prenderò l'ombrello'', si può rendere con $\alpha \land \beta$ la frase ``domani pioverà e prenderò l'ombrello''. Fare lo stesso con le frasi:
+	\begin{itemize}
+		\item Il supermercato era aperto e non ci sono entrato.
+		\item Il supermercato era aperto ma non ci sono entrato.
+		\item Se vedo Nicola lo saluto.
+		\item Se domenica non piove e vado a Roma, $2>1$, ma se Marco mangia la pizza allora certamente fioriranno le rose.
+	\end{itemize}
+\end{exsbox}
+\paragraph*{Svolgimento.} Si ha:
+\begin{itemize}
+	\item Posto $\alpha$: ``Il supermercato era aperto'' e $\beta$: ``Ci sono entrato'' si ottiene: $\alpha \land \neg \beta$;
+	\item Posto $\alpha$: ``Il supermercato era aperto'' e $\beta$: ``Ci sono entrato'' si ottiene: $\alpha \land \neg \beta$;
+	\item Posto $\alpha$: ``Vedo Nicola'' e $\beta$: ``Lo saluto'' si ottiene: $\alpha \implies \beta$;
+	\item Posto $\alpha$: ``Domenica piove'', $\beta$: ``Vado a Roma'', $\gamma$: ``$2>1$'', $\delta$: ``Marco mangia la pizza'' e $\zeta$: ``Fioriscono le rose'' si ottiene:
+	$\Bigl( \bigl( \neg (\alpha) \land \beta \bigr) \implies \delta \Bigr) \land \bigl(\theta \implies \zeta \bigr)$.
+\end{itemize}
+\begin{flushright}
+	\blacksquare
+\end{flushright}
+
+\begin{exsbox}
+	Spiegare la seguente storiella: la moglie del logico chiede al marito: ``Caro, stasera usciamo o restiamo a casa?''. Il marito risponde ``Sì.''.
+\end{exsbox}
+\paragraph*{Svolgimento.} Il marito ha risposto ``sì'' perché la frase ``stasera usciamo o restiamo a casa'' è una proposizione composta da una singola proposizione logica, $p$, congiunta dalla disgiunzione esclusiva : $p \xor (\neg p)$ che risulta essere una tautologia. La risposta del marito non può essere quindi che affermativa. \hfill \blacksquare
+
+\begin{exsbox}
+	Verificare la tautologia $\bigl(p \implies (q \implies r)\bigr) \iff \bigl((p \implies q) \implies (p \implies r) \bigr)$ (distributività da sinistra dell'implicazione rispetto a sé stessa).
+\end{exsbox}
+\paragraph*{Svolgimento.} Sia $\alpha \coloneqq \bigl(p \implies (q \implies r)\bigr)$ e $\beta \coloneqq \bigl((p \implies q) \implies (p \implies r) \bigr)$. Verifichiamo che $\alpha \iff \beta$ non può essere mai falsa. Per essere falsa devono assumere valore diverso, per ogni valore di $p,q,r$, le due formule. Sia quindi $\alpha$ falsa e $\beta$ vera. Si ha quindi che sia $p$ che $q \implies r$ hanno valore falso. Quindi $q$ ha valore vero ed $r$ assume valore falso. In questa situazione si ha che $p \implies q$ è vera e $p \implies r$ è falsa. Quindi $\beta$ è falsa, trovando una contraddizione. Viceversa, sia $\alpha$ vera e $\beta$ falsa. Procedendo in maniera analoga si ottiene che $p$ e $q$ sono vere mentre $r$ è falsa. Allora, stando questi valori, $\alpha$ è falsa, contro le ipotesi iniziali e quindi $\alpha$ e $\beta$ non assumono mai valori logicamente diversi. \hfill \blacksquare
+
+\begin{exsbox}
+	Negare ciascuna delle frasi: ``Mario corre e Maria nuota'', ``La bottiglia è vuota oppure tappata''.
+\end{exsbox}
+\paragraph*{Svolgimento.} Poniamo $\alpha$:``Mario corre'' e $\beta:$ ``Mario nuota''. La frase ``Mario corre e Mario nuota'' corrisponde quindi a $\alpha \land \beta$. Per negare la frase si procede quindi nel seguente modo:
+\begin{displaymath}
+	\neg (\alpha \land \beta)  \iff \neg (\alpha) \lor \neg (\beta)
+\end{displaymath}
+ovvero: ``Mario non corre oppure non nuota''. Analogamente, posto $\alpha$: ``La bottiglia è vuota'' e $\beta$: ``La bottiglia è tappata'' si ha:
+\begin{displaymath}
+	\neg (\alpha \lor \beta) = \neg (\alpha) \land \neg (\beta)
+\end{displaymath}
+Ovvero: ``La bottiglia non è vuota e non è tappata''. \hfill \blacksquare
+\begin{exsbox}
+	Negare la frase: ``Alice ha i capelli biondi ricci''. (Si chiede che anche la negazione inizi con ``Alice ha i capelli...'')
+\end{exsbox}
+\paragraph*{Svolgimento.} La frase ``Alice ha i capelli biondi ricci'' cela al suo interno una congiunzione, infatti Alice ha i capelli biondi e i capelli ricci. Quindi, posto $\alpha$ : ``Alice ha i capelli biondi'' e $\beta$ : ``Alice ha i capelli ricci'', la frase diventa $\alpha \land \beta$ la cui negazione è $\neg (\alpha \land \beta) = \neg(\alpha) \lor \neg(\beta)$, ovvero ``Alice ha i capelli mori oppure ha i capelli lisci''. \hfill \blacksquare
+
+\begin{exsbox}
+	Usando le leggi di De Morgan, negare $p \land \bigl( \neg (q \land (\neg p)) \bigr)$. Ciò che si chiede è scrivere una formula che sia equivalente alla negazione di quella data e che non abbia $\neg$ come primo simbolo.
+\end{exsbox}
+\paragraph*{Svolgimento.} Si ha:
+\begin{align*}
+	\neg \Bigl(p \land \bigl( \neg (q \land (\neg p)) \bigr)\Bigr) &\iff \neg \Bigl(p \land \bigl( \neg(q) \lor p \bigr) \Bigr)& \text{\textcolor{gray}{Applicando De Morgan a $\neg (q \land (\neg p))$ }} \\
+	&\iff \Bigl( \neg(p) \lor \neg \bigl( \neg(q) \lor p \bigr)\Bigr)  & \text{\textcolor{gray}{Applicando De Morgan all'intero membro}} \\
+	&\iff \Bigl( \neg(p) \lor \bigl( \neg(\neg q) \land \neg (p) \bigr)\Bigr) & \text{\textcolor{gray}{Applicando De Morgan a $\neg \bigl( \neg(q) \lor p \bigr)$}}\\
+	&\iff \Bigl( \neg(p) \lor \bigl( q \land \neg(p) \bigr)\Bigr) & \text{\textcolor{gray}{Per la doppia negazione}}\\
+	&\iff \Bigl( \bigl(\neg(p) \lor q \bigr) \land \bigl(\neg(p) \lor \neg(p)\bigr)\Bigr) & \text{\textcolor{gray}{Per la distributività di $\lor$ rispetto a $\land$}} \\
+	&\iff \Bigl( \bigl(\neg(p) \lor q \bigr) \land \neg(p) \Bigr) & \text{\textcolor{gray}{Per idempotenza}} \\
+\end{align*}
+\begin{flushright}
+	\blacksquare
+\end{flushright}
+\begin{exsbox}
+	Come per l'esercizio precedente, negare ciascuna delle due formule: ``$p \land
+	q \land r$'' e ``$(p \lor q)\land((p \lor r)\land(q \lor s))$''
+\end{exsbox}
+\paragraph*{Svolgimento.} Si ha:
+\begin{itemize}
+	\item $\neg \bigl(p \land q \land r \bigr) \iff \bigl( \neg(p) \lor \neg(q) \lor \neg(r)\bigr)$
+	\item $\neg \Bigl( (p \lor q) \land \bigl((p \lor r)\land(q \lor s)\bigr)\Bigr) \iff \Bigl(\neg(p \lor q) \lor \neg \bigl( (p \lor r)\land(q \lor s) \bigr)\Bigr) \iff \Bigl( \bigl(\neg(p) \land \neg(q)\bigr) \lor \bigl( \neg(p \lor r) \lor \neg(q \lor s)\bigr)\Bigr) \iff \Bigl( \bigl(\neg(p) \land \neg(q)\bigr) \lor \bigl( ( \neg(p) \land \neg (r)) \lor (\neg (q) \land \neg (s))\bigr)\Bigr)$
+\end{itemize}
+\begin{flushright}
+	\blacksquare
+\end{flushright}
+\begin{exsbox}
+	Negare le frasi ``Se piove mi bagno'', ``Se piove non mi bagno'', ``Se piove, mi bagno e mi ammalo''.
+\end{exsbox}
+\paragraph*{Svolgimento.} Poniamo per semplicità $\alpha$ :  ``Piove'', $\beta$ : ``Mi bagno'', $\delta$ : ``Mi ammalo''. Allora:
+\begin{itemize}
+	\item ``Se piove mi bagno'' = $\alpha \implies \beta$. E vale $\neg(\alpha \implies \beta)= \alpha \land \neg(\beta)$, ovvero ``Piove e non mi bagno'';
+	\item ``Se piove non mi bagno'' = $\alpha \implies \bigl(\neg (\beta)\bigr)$, si ha:
+	\begin{align*}
+		\neg \Bigl( \alpha \implies \bigl(\neg (\beta)\bigr) \Bigr) &\iff \alpha \land \neg \bigl( \neg (\beta) \bigr) \\
+		&\iff \alpha \land \beta
+	\end{align*}
+	Ovvero ``Piove e mi bagno'';
+	\item ``Se piove, mi bagno e mi ammalo'' = $\alpha \implies (\beta \land \delta)$. Si ha:
+	\begin{align*}
+		\neg \bigl( \alpha \implies (\beta \land \delta) \bigr) &\iff \alpha \land \neg (\beta \land \delta) \\
+		&\iff \alpha \land \bigl(\neg(\beta) \lor \neg (\delta) \bigr)
+	\end{align*}
+	ovvero: ``Piove eppure o non mi bagno o non mi ammalo''. \hfill \blacksquare
+\end{itemize}
+\begin{exsbox}
+	Abbiamo dimostrato la distributività di $\land$ rispetto a $\xor$. Verificare che $\lor$ non è distributivo rispetto a $\xor$, vale a dire:
+	\begin{displaymath}
+		\bigl(p \lor (q \ \xor \ r)\bigr) \iff \bigl((p \lor q)\  \xor \ (p \lor r)\bigr)
+	\end{displaymath}
+	non è una tautologia. Analogamente, $\lor$ è distributivo rispetto a $\iff$? Ovvero:
+	\begin{displaymath}
+		\bigl(p \lor (q \iff r)\bigr) \iff \bigl((p \lor q) \iff (p \lor r)\bigr)
+	\end{displaymath}
+	è una tautologia?
+\end{exsbox}
+\paragraph*{Svolgimento.} Dimostriamo che $\lor$ non è distributivo rispetto a $\xor$ costruendo le tavole di verità. Poniamo $\alpha: \bigl(p \lor (q \ \xor \ r)\bigr)$ e $\beta: \bigl((p \lor q)\  \xor \ (p \lor r)\bigr)$.
+\begin{center}
+	\begin{tblr}
+		{hlines,vlines,cells={mode=math},row{1}={primary!80!white},colspec={X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]}}
+		p & q & r & q \xor r & p \lor q & p \lor r & \alpha & \beta \\
+		V & V & V & F & V & V & V & F\\
+		V & V & F & V & V & V & V & F\\
+		V & F & V & V & V & V & V & F\\
+		V & F & F & F & V & V & V & F\\
+		F & V & V & F & V & V & F & F\\
+		F & V & F & V & V & F & V & V\\
+		F & F & V & V & F & V & V & V\\
+		F & F & F & F & F & F & F & V
+	\end{tblr}
+\end{center}
+\begin{flushright}
+	\blacksquare
+\end{flushright}
+
+\begin{exsbox}
+	Negare ``Se esco di casa o mi affaccio al balcone, vedo Maria e Franco''.
+\end{exsbox}
+\paragraph*{Svolgimento.} Possiamo tradurre la frase ponendo $\alpha$: ``Esco di casa'', $\beta$: ``Mi affaccio al balcone'', $\delta$: ``Vedo Maria'', $\theta$: ``Vedo Franco''.
+Quindi: $(\alpha \lor \beta) \implies (\delta \land \theta)$. Per negare:
+\begin{align*}
+	\neg \bigl( (\alpha \lor \beta) &\implies (\delta \land \theta) \bigr) \\
+	&\iff (\alpha \lor \beta) \land \neg (\delta \land \theta)\\
+	&\iff (\alpha \lor \beta) \land \bigl(\neg(\delta) \lor \neg(\theta)\bigr) & \text{\textcolor{gray}{Applicando De Morgan}}
+\end{align*}
+Quindi una possibile proposizione che nega la formula proposta può essere: ``Nonostante esca di casa o mi affacci al balcone comunque non vedo Maria o Franco''. \hfill \blacksquare
+\begin{exsbox}
+	Negare la forma proposizionale $(p \lor q) \implies (r \land s)$.
+\end{exsbox}
+\paragraph*{Svolgimento.} Si ha:
+\begin{align*}
+	\neg \bigl((p \lor q) &\implies (r \land s) \bigr) \\
+	&\iff (p \lor q) \land \neg(r \land s)\\
+	&\iff (p \lor q) \land \bigl(\neg(r) \lor \neg(s)\bigr) & \text{\textcolor{gray}{Applicando De Morgan}}
+\end{align*}
+\begin{flushright}
+	\blacksquare
+\end{flushright}
+\begin{exsbox}
+	Vero o falso? E perché? Questo è un esercizio di corretta lettura ed interpretazione di formule.
+	\begin{enumerate}
+		\item $(\forall x \in \mathbb{N})(x+1 < x \implies x^{2}=1)$
+		\item $(\exists x \in \mathbb{N}) (\forall y \in \mathbb{N}(x \leq y))$
+		\item $(\forall x \in \mathbb{N)}(\exists y \in \mathbb{N}(x<y))$
+		\item $(\forall x \in \mathbb{N})(\exists y \in \mathbb{N}((x=y+1)\implies(x<y)))$
+		\item $(\exists x \in \mathbb{N}) (\forall y \in \mathbb{N}((x<y)\lor(y<x)\lor(y=11)))$
+		\item $(\exists x \in \mathbb{N})(\forall y \in \mathbb{Z}((x \neq y)\implies (x<y)))$
+		\item Ogni numero reale il cui quadrato sia negativo è maggiore di $10^{327}$.
+	\end{enumerate}
+\end{exsbox}
+\paragraph*{Svolgimento.}
+\begin{enumerate}
+	\item L'espressione risulta essere una formula vera in quanto l'implicazione $ (x+1 < x \implies x^{2}=1)$ è sempre vera in quanto l'antecedente è falsa.
+	\item L'espressione afferma l'esistenza di un numero naturale minore od uguale a ciascun $y \in \mathbb{N}$. Tale elemento esiste (lo zero) e quindi la formula risulta vera.
+	\item Al contrario questa espressione risulta falsa in quanto non esiste un elemento in $\mathbb{N}$ minore di ciascun elemento di $\mathbb{N}$.
+	\item La formula esprime l'esistenza, per ogni numero naturale $x \in \mathbb{N}$, di un $y$ che sia il suo successore il che è sempre vero.
+	\item La formula risulta vera in quanto, esiste un numero naturale il quale per ogni $y \in \mathbb{N}$ è sempre vera la proposizione $(x<y)\lor(y<x)\lor(y=11)$. Infatti, preso $x=11$ la proposizione è vera.
+	\item La formula risulta falsa. Non esiste infatti un naturale per il quale, per ogni numero intero relativo, se $x \neq y$ allora $x < y$. Basta infatti considerare il seguente controesempio: sia $x =3$ e $y=1$ allora $x \neq y$ ma $x>y$.
+	\item La formula è vera in quanto l'implicazione è vera in quanto l'antecedente è falso. \hfill \blacksquare
+\end{enumerate}
+\begin{exsbox}
+	Verificare (in modo diretto) la formula $\neg(\exists x \in S)(\varphi) \Longleftarrow \forall(x \in S)(\neg \varphi)$.
+\end{exsbox}
+\paragraph*{Svolgimento.} Per dimostrare in maniera diretta la formula basta considerare il caso in cui questa sia falsa.
+
+Infatti per avere un'implicazione falsa basta che sia vera l'antecedente e falsa la formula conseguente. Negando la conseguente si ottiene $$\neg(\neg(\exists x \in S (\varphi))) \iff \exists x \in S (\varphi)$$ che è coerente con la formula $(\forall x \in S) (\varphi)$. Infatti se tale predicato $\varphi$ valesse per ogni elemento dell'insieme $S$ allora certamente esisterebbe almeno un elemento $x$ in $S$ per il quale il predicato sia verificato. Per questo motivo allora possiamo dire che la formula originale è falsa. \hfill \blacksquare
+
+\begin{exsbox}
+	Si neghi ciascuna delle formule (le notazioni sono le solite):
+	\begin{enumerate}
+		\item $\forall x (\exists y (\varphi(x,y)\implies \psi(x,y)))$
+		\item $\exists x (\varphi(x) \land \forall y(\neg \psi(x,y)))$
+		\item $\forall x,y(\exists z(z \neq y \land \varphi(x,z)))$
+	\end{enumerate}
+\end{exsbox}
+\paragraph*{Svolgimento.}
+Si ha:
+\begin{enumerate}
+	\item Si procede negando dall'esterno verso l'interno.
+	\begin{displaymath}	\neg \Biggl(\forall x \biggl( \exists y \bigl( \varphi(x,y) \implies \psi (x,y) \bigr) \biggr) \Biggr)
+	\end{displaymath}
+	che è equivalente a:
+	\begin{displaymath}
+		\exists x \biggl(\neg \Bigl( \exists y \bigl(\varphi(x,y)\implies \psi(x,y) \bigr) \Bigr)\biggr)
+	\end{displaymath}
+	Quindi si nega il quantificatore esistenziale all'interno:
+	\begin{displaymath}
+		\exists x \biggl( \forall y \Bigl( \neg \bigl( \varphi(x,y) \implies \psi(x,y) \bigr)\Bigr)\biggr)
+	\end{displaymath}
+	ed infine si nega l'implicazione:
+	\begin{displaymath}
+		\exists x \Bigl( \forall y \bigl( \varphi(x,y) \land (\neg \psi(x,y))\bigr)\Bigr)
+	\end{displaymath}
+	\item Neghiamo $\exists x \bigl( \varphi(x) \land \forall y (\neg \psi(x,y) ) \bigr)$:
+	\begin{align*}
+		\neg \biggl( \exists x \Bigl( \varphi(x) \land \forall y \bigl( \neg \psi(x,y) \bigr) \Bigr) \biggr) &\iff \forall x \biggl(  \neg \Bigl(  \varphi(x) \land \forall y \bigl( \neg (\psi (x,y)) \bigr)    \Bigr)   \biggr) \\
+		&\iff  \forall x \biggl(   \neg \varphi(x) \lor \neg \bigl( \forall y (\neg \psi(x,y) )  \bigr)\biggr) \\
+		&\iff \forall x \biggl( \neg \varphi(x) \lor \exists y(\neg(\neg \psi(x,y))) \biggr)\\
+		&\iff \forall x \biggl(  \neg \varphi(X) \lor \exists y (\psi(x,y)) \biggr)
+	\end{align*}
+	\item Abbiamo:
+	\begin{align*}
+		\neg \Biggl( \forall x,y \biggl( \exists z \Bigl( z \neq y \land \varphi(x,z) \Bigr) \biggr)   \Biggr)
+		&\iff \exists x,y \Biggl( \neg \biggl( \exists z \bigl(z \neq y \land \varphi(x,z) \bigr)  \biggr)   \Biggr) \\
+		&\iff \exists x,y \Biggl( \forall z \biggl(\neg \bigl( z \neq y \land \varphi(x,z)  \bigr)    \biggr)   \Biggr) \\
+		& \iff \exists x,y \biggl( \forall z \Bigl( \neg (z \neq y) \lor \neg \bigl(\varphi(x,z)\bigr)  \Bigr)   \biggr)
+	\end{align*}
+\end{enumerate}
+\begin{flushright}
+	\blacksquare
+\end{flushright}
+\begin{exsbox}
+	Negare: $\exists x \in y (x=y \iff x \in y)$.
+\end{exsbox}
+\paragraph{Svolgimento.} Sviluppiamo la formula seguendo la definizione di quantificatore limitato:
+\begin{displaymath}
+	\exists x \in y (x=y \iff x \in y) \iff \exists x \bigl(x \in y \land (x=y \iff x \in y)\bigr)
+\end{displaymath}
+e neghiamo:
+\begin{align*}
+	\neg \Bigl(\exists x \bigl(x \in y \land (x=y \iff x \in y)\bigr)\Bigr) &\iff \forall x \Bigl(\neg \bigl(x \in y \land (x=y \iff x \in y)\bigr)\Bigr) \\
+	&\iff \forall x \Bigl(\neg(x \in y) \lor \neg (x=y \iff x \in y)\Bigr)\\
+	&\iff \bigl(x \notin y \lor (x\neg y \iff x \in y)\bigr)
+\end{align*}
+\hfill \blacksquare
+\begin{exsbox}
+	Negare: $\forall x \in \mathbb{N}(0+x=1+x)$.
+\end{exsbox}
+\paragraph{Svolgimento.} Sviluppiamo la formula seguendo la definizione di quantificatore limitato:
+\begin{displaymath}
+	\forall x \bigl(x \in \mathbb{N} \implies (0+x=1+x)\bigr)
+\end{displaymath}
+e neghiamo:
+\begin{align*}
+	\neg \Bigl(	\forall x \bigl(x \in \mathbb{N} \implies (0+x=1+x)\bigr)\Bigr) &\iff \exists x \bigl(\neg (x \in \mathbb{N} \implies 0+x=1+x)\bigr) \\
+	&\iff \exists x (x \in \mathbb{N} \land 0+x \neq 1+x)
+\end{align*}
+\hfill \blacksquare
