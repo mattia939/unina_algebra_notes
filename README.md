@@ -39,5 +39,5 @@ Se riscontri problemi:
 Questo progetto usa il [template](./unina_doc_class.cls) sviluppato da [@luftmensch-luftmensch](https://github.com/luftmensch-luftmensch).
 
 ### 📄 Licenza
-Questo lavoro è distribuito con licenza Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International ([CC BY-NC-SA 4.0](./LICENSE).
+Questo lavoro è distribuito con licenza Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International ([CC BY-NC-SA 4.0](./LICENSE)).
 Puoi usarlo e modificarlo liberamente solo per scopi non commerciali, citando questa repository come fonte e mantenendo la stessa licenza.
