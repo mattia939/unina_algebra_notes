@@ -553,41 +553,48 @@
         square/.style={regular polygon,regular polygon sides=4, inner sep=0pt, outer sep=0pt},
 }
 
-% \coverpage{<SIZE-OF-DOCUMENT-YEAR>}{<DOCUMENT-YEAR>}{<SIZE-OF-DOCUMENT-NAME>}{<DOCUMENT-NAME>}
-\newcommand\coverpage[6]{%
-	\newgeometry{noheadfoot=true, margin=0pt}\newpage\thispagestyle{empty}%
-	\noindent\begin{tikzpicture}[remember picture, overlay, shift=(current page.south west)]%
-		\begin{scope}[x={(current page.south east)},y={(current page.north west)}, overlay]
-			% Background
-			\fill [primary!75!white] (0,0) rectangle (1,1);
+\newcommand\coverpage[4]{%
+        \newgeometry{noheadfoot=true, margin=0pt}\newpage\thispagestyle{empty}%
+        \noindent\begin{tikzpicture}[remember picture, overlay, shift=(current page.south west)]%
+                \begin{scope}[x={(current page.south east)},y={(current page.north west)}, overlay]
+                        % Background
+                        \fill [primary!75!white] (0,0) rectangle (1,1);
 
-			%% Layout
-			\path [mpath=primary!25!white]  (0,0.25) -- (0.2,0.4) -- (0.8, 0.4) -- (1, 0.55) -- (1, 0.1) -- (0.93, 0.05) -- (0.07, 0.05) -- (0,0) -- cycle;
-			\path [mpath=primary!85!white]  (0,0.27) -- (0.17,0.40) -- (0.2, 0.40) -- (0,0.25) -- cycle;
-			\path [mpath=primary!85!white]  (0.77,0.4) -- (0.8, 0.40) -- (1, 0.55) -- (1, 0.57) -- cycle;
-			\path [mpath=primary!65!black]  (0,0) -- (0.025,0) -- (0.075, 0.035) -- (0.94, 0.035) -- (1, 0.08) -- (1, 0.1) -- (0.93, 0.05) -- (0.07, 0.05) -- (0, 0) -- cycle;
-			\path [mpath=primary!35!black]  (0,0.27) -- (0.17,0.40) -- (0.77, 0.40) -- (1, 0.57) -- (1, 0.8) -- (0.85, 0.8) -- (0.6, 0.6) -- (0.13, 0.6) -- (0,0.5) -- cycle;
+                        %% Layout
+                        % Text box
+                        \path [mpath=primary!25!white]  (0,0.25) -- (0.2,0.4) -- (0.8, 0.4) -- (1, 0.55) -- (1, 0.1) -- (0.93, 0.05) -- (0.07, 0.05) -- (0,0) -- cycle;
+                        % Left Wing
+                        \path [mpath=primary!85!white]	(0,0.27) -- (0.17,0.40) -- (0.2, 0.40) -- (0,0.25) -- cycle;
+                        % Right Wing
+                        \path [mpath=primary!85!white]	(0.77,0.4) -- (0.8, 0.40) -- (1, 0.55) -- (1, 0.57) -- cycle;
+                        % Under Wing
+                        \path [mpath=primary!65!black]  (0,0) -- (0.025,0) -- (0.075, 0.035) -- (0.94, 0.035) -- (1, 0.08) -- (1, 0.1) -- (0.93, 0.05) -- (0.07, 0.05) -- (0, 0) -- cycle;
+                        % Central Wing
+                        \path [mpath=primary!35!black]	(0,0.27) -- (0.17,0.40) -- (0.77, 0.40) -- (1, 0.57) -- (1, 0.8) -- (0.85, 0.8) -- (0.6, 0.6) -- (0.13, 0.6) -- (0,0.5) -- cycle;
 
-			%% Text nodes
-			\node (fiisymbol) at ([yshift=-0.5cm, xshift=0.5cm]0,1)[align=center, anchor=north west, inner sep=0pt, outer sep=0pt]
-			{ \color{primary!65!black}\includegraphics[width=3cm,height=3cm,keepaspectratio]{sources/uni_logo.pdf}};
-			\node (fiitext) at ([xshift=0.25cm] fiisymbol.north east) [align=left, anchor=north west]
-			{{\color{primary!65!black}\Lato\fontsize{10}{0}\selectfont Università degli Studi di Napoli}};
-			\node (fiiname) at ([xshift=0.01cm, yshift=0.2cm]fiitext.south west) [align=left, anchor=north west]
-			{{\color{primary!65!black}\Agency\fontsize{24}{0}\selectfont Federico II}};
+                        %% Text nodes
+                        % Icon & University
+                        \node (fiisymbol) at ([yshift=-0.5cm, xshift=0.5cm]0,1)[align=center, anchor=north west, inner sep=0pt, outer sep=0pt]
+                                { \color{primary!65!black}\includegraphics[%
+                                                width=3cm,%
+                                                height=3cm,%
+                                                keepaspectratio%
+                                        ] {sources/uni_logo.pdf}};
+                        \node (fiitext) at ([xshift=0.25cm] fiisymbol.north east) [align=left, anchor=north west]
+                                {{\color{primary!65!black}\Lato\fontsize{10}{0}\selectfont Università degli Studi di Napoli}};
+                        \node (fiiname) at ([xshift=0.01cm, yshift=0.2cm]fiitext.south west) [align=left, anchor=north west]
+                                {{\color{primary!65!black}\Agency\fontsize{24}{0}\selectfont Federico II}};
 
-			\node (academicyear) at ([xshift=-0.5cm] fiitext.north -| 1,1) [align=right, anchor=north east]
-			{{\color{primary!65!black}\Gobold\fontsize{#1}{0}\selectfont #2}};
+                        % Date and academic year
+                        \node (academicyear) at ([xshift=-0.5cm] fiitext.north -| 1,1) [align=right, anchor=north east]
+                                {{\color{primary!65!black}\Gobold\fontsize{#1}{0}\selectfont #2}};
 
-			% Title
-			\node (docTitle) at ([xshift=0.1cm, yshift=0.2cm] $(0,0)!0.5!(1,1)$) [align=center, anchor=center, inner sep=0pt, outer sep=0pt]
-			{{\color{primary!70!white}\Gobold\fontsize{#3}{0}\selectfont #4}};
+                        % Title of the documentation
+                        \node at ([xshift=0.1cm, yshift=0.1cm] $(0,0)!0.5!(1,1)$) [align=center, anchor=center, inner sep=0pt, outer sep=0pt]
+                                {{\color{primary!70!white}\Gobold\fontsize{#3}{0}\selectfont #4}};
+                \end{scope}%
+        \end{tikzpicture}\restoregeometry\newpage}
 
-			% Authors
-			\node at ([yshift=-1.5cm] docTitle.south) [align=center, anchor=north, inner sep=0pt, outer sep=0pt]
-			{{\color{primary!65!white}\Lato\fontsize{#6}{0}\selectfont #5}};
-		\end{scope}%
-	\end{tikzpicture}\restoregeometry\newpage}
 
 % \introduction{Professor Name}{Additional Text}
 \newcommand\introduction[2]{

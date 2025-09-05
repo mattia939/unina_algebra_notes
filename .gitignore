@@ -1,0 +1,57 @@
+### Direnv
+.direnv
+/direnv
+### Doc related
+*.fdb_latexmk
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.idx
+*.ilg
+*.ind
+*.blx
+*.log
+*.toc
+*.out
+*.psd
+*.fls
+*.lol
+*.html
+*.synctex.gz
+
+# Scripts
+*.bat
+
+# Exclude fonts & sources directories inside those directories
+I-ANNO/**/fonts/*
+I-ANNO/**/sources/*
+I-ANNO/**/*.ttf
+I-ANNO/**/*.cls
+I-ANNO/**/*.idx
+I-ANNO/**/*.pdf
+#I-ANNO/**/main.fdb_latexmk
+
+II-ANNO/**/fonts/*
+II-ANNO/**/sources/*
+II-ANNO/**/*.ttf
+II-ANNO/**/*.cls
+II-ANNO/**/*.pdf
+
+III-ANNO/**/fonts/*
+III-ANNO/**/sources/*
+III-ANNO/**/*.ttf
+III-ANNO/**/*.cls
+III-ANNO/**/*.pdf
+
+Tabella-A/**/fonts/*
+Tabella-A/**/sources/*
+Tabella-A/**/*.ttf
+Tabella-A/**/*.cls
+Tabella-A/**/*.pdf
+
+Tabella-B/**/fonts/*
+Tabella-B/**/sources/*
+Tabella-B/**/*.ttf
+Tabella-B/**/*.cls
+Tabella-B/**/*.pdf

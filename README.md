@@ -11,6 +11,10 @@ Questo repository raccoglie gli **appunti di Algebra** del Corso di Laurea in In
 ### Compilazione
 Per generare il PDF degli appunti:
 ```bash
+# Senza utilizzare il makefile messo a disposizione
+lualatex -shell-escape --interaction=nonstopmode --halt-on-error --file-line-error
+
+# Utilizzando il makefile
 make build
 ```
 ### 📂 Struttura
