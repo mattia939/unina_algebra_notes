@@ -183,11 +183,6 @@ Analogamente, per $f_{32}$ risolviamo l'equazione $5x \equiv_{32} 1$ ottenendo $
 \item Un polinomio è cancellabile se e solo se $cd(f)$ è cancellabile nell'anello dei coefficienti. In questo caso, essendo $cd(f)=5$ un numero primo abbiamo che per ogni intero non nullo $n <10$ 5 è coprimo con $n$ e quindi simmetrizzabile, quindi cancellabile.
 \end{enumerate}
 \vfill
-%\section{Esame del 16 giugno 2023}
-%\begin{center}
-%	\includegraphics[scale=.85]{pdf/23-06-16.pdf}
-%\end{center}
-%\vfill
 \section{Esame del 13 luglio 2023}
 \begin{center}
 	\includegraphics[scale=.85]{pdf/23-07-13.pdf}
@@ -396,13 +391,10 @@ Quindi $u=[-68]_{42}=[16]_{42}$ è soluzione dell'equazione. L'insieme $A=\{[16]
 	\item Essendo costante $\varphi$ il suo nucleo di equivalenza coincide con la relazione totale in $S$. Quindi $S/{\sim_{\varphi}} = S/{\tau_{S}} = \{S\}$, ed esiste un'unica classe di equivalenza.
 \end{enumerate}
 \vfill
-%\section{Esame del 4 ottobre 2023}
-%\begin{center}
-%	\includegraphics[scale=.85]{pdf/23-10-04.pdf}
-%\end{center}
+
 \section{Esame del 15 gennaio 2024}
 \begin{center}
-	\includegraphics[scale=.85]{pdf/Traccia_150124}
+	\includegraphics[scale=.85]{pdf/24-01-15}
 \end{center}
 \subsection*{Esercizio 1}
 Applicando la Proposizione \ref{prop:negazione_quantificatori} si ottiene:
@@ -1334,3 +1326,195 @@ Un grafo semplice è un grafo non orientato. Una coppia $G=(V,R)$ è un grafo se
 	\item Sia $V=\{2,3,4,12\}$, chiaramente 12 è un vertice isolato e quindi $V$ non risulta essere connesso.
 	\item $V$ non ha circuiti euleriani in quanto $deg(5)$ non è pari.
 \end{enumerate}
+
+
+\section{Esame del 19 giugno 2025}
+\begin{center}
+    \includegraphics[scale=.85]{pdf/25-06-19.pdf}
+\end{center}
+
+\subsection*{Esercizio 1}
+Ok dobbiamo capire per quale $\star$ sia una tautologia, cerchiamo di avere già tutti i valori pronti e poi proviamo AND, OR e $\implies$ per capire chi potrebbe dare una tautologia.
+\begin{center}
+    \begin{tblr}
+        {
+            hlines,
+            vlines,
+            row{1}={primary!40!white},
+            colspec={cccccX[c]X[c]},
+            cells={mode=math}
+        }
+    p & q & p \oplus q & ( p \implies q ) & ( p \land \neg(q) ) & \neg ( ( p \implies q ) \land ( p \land \neg(q) ) ) \\
+    V & V & F & V & V & V \\
+    V & V & V & F & V & F \\
+    F & V & V & V & F & F \\
+    F & F & F & V & V & V\\
+    \end{tblr}
+
+Se compariamo l'ultima colonna (a cui già abbiamo applicato il NOT) con quella dello XOR ci accorgiamo che hanno gli stessi valori, abbiamo una tautologia!
+\end{center}
+
+\subsection*{Esercizio 2}
+Esplicitiamo i numeri primi in T: $S = \{-5, -3, -2, 2, 3, 5\}$ \\
+Cardinalità 7: $\emptyset$. Ovvio perché l'insieme ha 6 elementi come possiamo raggrupparlo per 7? \\
+Cardinalità 4: $\binom{6}{4} = \frac{6!}{4!(2!)} = \frac{6 \cdot 5}{2} = 15$. \\
+Creiamo un nuovo insieme per "Determinare poi, tra i sottoinsiemi di T a cui non appartengono numeri primi" \\
+$H: T \setminus S = \{-6, -4, -1, 0, 1, 4, 6\}$ \\
+Cardinalità 7: $\binom{7}{7} = 1$ \\
+Cardinalità 4: $\binom{7}{4} = \frac{7!}{4!(3!)} = \frac{7 \cdot 6 \cdot 5}{3 \cdot 2 \cdot 1} = 35$ \\
+
+\subsection*{Esercizio 3}
+Utilizzando il lemma che ci dice che quando 30 ed n sono coprimi allora sono invertibili sappiamo già che n = 89 ci renderà fn biettiva.
+
+\vspace{1em}
+
+$MCD(30,89) = 1$
+
+\vspace{1em}
+
+$89 = 30 \cdot 2 + 29 \implies 29 = 89 - 30 \cdot 2$
+
+$30 = 29 \cdot 1 + 1 \implies 1 = 30 - 29$
+
+$1 = 30 - (89 - 30 \cdot 2) \implies 30(1+2) - 89 \implies 30 \cdot 3 - 89$
+
+$30 \cdot 3 \equiv 90 \pmod{89} \rightarrow [30 \cdot 3]_{89} = [1]_{89} \rightarrow [a]_{89} = [3]_{89}$
+
+\begin{itemize}
+    \item $\vec{f}_{40}(\mathbb{Z}_{40}) = \{[0]_{40}, [10]_{40}, [20]_{40}, [30]_{40}\}$.
+    \item $\vec{f}_{40}(\emptyset) = \emptyset$.
+    \item $\overleftarrow{f}_{40}(\emptyset) = \emptyset$.
+    \item $\overleftarrow{f}_{40}(\mathbb{Z}_{40}) = \mathbb{Z}_{40}$.
+    \item $\overleftarrow{f}_{40}(\{[20]_{40}\}) = \{[2]_{40}, [6]_{40}, [10]_{40}, [14]_{40}, [18]_{40}, [22]_{40}, [26]_{40}, [30]_{40}, [34]_{40}, [38]_{40}\}$.
+    \item $\overleftarrow{f}_{40}(\{[2]_{40}\}) = \emptyset$.
+\end{itemize}
+
+\subsection*{Esercizio 4}
+
+\subsubsection*{Primo punto}
+
+Ok ragioniamoci un pò. Dice che dovremmo mettere in relazione la somma dell cifre dei numeri che si dividono tra loro. E
+la somma di a è indicato come sA mentre la somma delle cifre di b come sB. Quindi avremo una relazione quando il numero
+13 la cui somma fa 4 divider un altro numero ad esempio 17 perché 1 + 7 = 8. \\ \\ 
+
+In un contesto "normale" senza giri strane con le somme quando un numero divide sempre TUTTI gli altri? Quando è 1, in questo
+caso tutti i numeri che sono potenze di 10. $10^0 = 1, 10^1 = 10$ la cui somma fa 1, $10^2 = 100$ la cui somma fa 1 ecc\dots Quindi come
+minimali abbiamo tutte le potenze di 10 e di conseguenza non esiste minimo. \\ \\
+
+Quale numero invece viene diviso da tutti? 0 E in questo caso il massimo è anche massimale
+
+\subsubsection*{Secondo punto}
+
+$MINOR_{(\mathbb{N}, \tau)}(\{21, 22\}) = \{ m \in \mathbb{N} \mid \forall x \in \{21, 22\}, m \tau x \} = \{ m \in \mathbb{N} \mid Sm < 3 \}$
+% Testo blu
+INF $\{21, 22\}$ non può esistere perché è il MAX dei minoranti ma essendo che ce ne sono infiniti, non esisterà alcun INF
+
+\subsubsection*{Terzo punto}
+
+Non è un reticolo perché non può avere INF (visto che ci sono diversi minimali).
+
+\subsubsection*{Quarto punto}
+
+\begin{center}
+    \begin{tikzpicture}
+        % Nodi del livello più basso (10001)
+        \node[label=below:{$10001$}](n10001) at (3,0) {}; % Posizionato al centro in basso
+
+        % Nodi del livello intermedio (13, 15, 22, 31)
+        \node[label=left:{$13$}](n13) at (0,1) {};
+        \node[label=left:{$15$}](n15) at (2,1) {};
+        \node[label=left:{$22$}](n22) at (4,1) {};
+        \node[label=right:{$31$}](n31) at (6,1) {};
+
+        % Nodi del livello superiore (66, 5106)
+        \node[label=left:{$66$}](n66) at (1,2) {};
+        \node[label=right:{$5106$}](n5106) at (5,2) {};
+
+        % Nodi del livello più alto (24288)
+        \node[label=above:{$24288$}](n24288) at (3,3) {};
+
+        % Collegamenti da 10001 ai nodi del livello intermedio
+        \draw (n10001)--(n13);
+        \draw (n10001)--(n15);
+        \draw (n10001)--(n22);
+        \draw (n10001)--(n31);
+
+        % Collegamenti da 13, 15, 22, 31 a 66
+        \draw (n13)--(n66);
+        \draw (n15)--(n66);
+        \draw (n22)--(n66);
+        \draw (n31)--(n66);
+
+        % Collegamenti da 13, 15, 22, 31 a 5106
+        \draw (n13)--(n5106);
+        \draw (n15)--(n5106);
+        \draw (n22)--(n5106);
+        \draw (n31)--(n5106);
+
+        % Collegamenti da 66 e 5106 a 24288
+        \draw (n66)--(n24288);
+        \draw (n5106)--(n24288);
+    \end{tikzpicture}
+\end{center}
+
+Sì è un reticolo ed è complementato ma non distributivo.
+
+\subsubsection*{Quinto punto}
+
+\begin{center}
+    \begin{tikzpicture}
+        % Nodi disposti verticalmente come nella figura
+        \node[label=above:{$24288$}](n24288) at (0,3) {};
+        \node[label=below:{$5106$}](n5106) at (0,2) {};
+        \node[label=below:{$31$}](n31) at (0,1) {};
+        \node[label=below:{$10001$}](n10001) at (0,0) {};
+
+        % Collegamenti verticali
+        \draw (n24288)--(n5106);
+        \draw (n5106)--(n31);
+        \draw (n31)--(n10001);
+    \end{tikzpicture}
+\end{center}
+
+\subsubsection*{Sesto punto}
+
+a = vuoto, vale tutto ciò che è stato detto al 4° punto.
+
+\subsection*{Esercizio 5}
+
+\subsubsection*{Punto 1}
+L'elemento neutro rispetto alla somma è $\vec{0}_S = (0, 0, 0)$.
+L'elemento neutro rispetto al prodotto è $\vec{1}_S = (0, 0, 1)$.
+
+\subsubsection*{Punto 2}
+Per l'elemento $(1, 2, -1)$, l'opposto è dato da $(a,b,c) + (a',b',c') = (0,0,0)$.
+Per la prima componente: $1 + a' = 0 \implies a' = -1$.
+Per la seconda componente: $2 + b' = 0 \implies b' = -2$.
+Per la terza componente: $-1 + c' = 0 \implies c' = 1$.
+Quindi, l'opposto di $(1, 2, -1)$ è $(-1, -2, 1)$.
+
+L'inverso di $(1, 2, -1)$ deve soddisfare $(1, 2, -1) \cdot (a, b, c) = (0, 0, 1)$.
+$(1 \cdot a, 1 \cdot b + 2 \cdot a, 1 \cdot c -1 \cdot a) = (a, b+2a, c-a) = (0, 0, 1)$.
+$a=0$, $b+2a=0 \implies b=0$, $c-a=1 \implies c=1$.
+L'inverso di $(1, 2, -1)$ è $(0, 0, 1)$.
+
+\subsubsection*{Punto 3}
+Per determinare se un elemento è un divisore dello zero, dobbiamo verificare se esiste un altro elemento non nullo che, moltiplicato per il primo, dà l'elemento neutro $(0,0,0)$.
+
+Per $(1, 2, -1)$:
+Supponiamo che esista un elemento $(a, b, c) \ne (0, 0, 0)$ tale che:
+$(1, 2, -1) \cdot (a, b, c) = (a, b+2a, c-a) = (0, 0, 0)$.
+Questo implica che:
+$a = 0$
+$b + 2a = 0 \implies b=0$
+$c - a = 0 \implies c=0$
+Quindi $(a, b, c) = (0, 0, 0)$. Non esiste un elemento non nullo che soddisfi la condizione, perciò $(1, 2, -1)$ **non** è un divisore dello zero.
+
+Per $(1, 1, 0)$:
+Supponiamo che esista un elemento $(a, b, c) \ne (0, 0, 0)$ tale che:
+$(1, 1, 0) \cdot (a, b, c) = (a, b+a, c) = (0, 0, 0)$.
+Questo implica che:
+$a = 0$
+$b + a = 0 \implies b=0$
+$c = 0$
+Quindi $(a, b, c) = (0, 0, 0)$. Anche in questo caso non esiste un elemento non nullo, quindi $(1, 1, 0)$ **non** è un divisore dello zero.
