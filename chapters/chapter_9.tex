@@ -1518,3 +1518,184 @@ $a = 0$
 $b + a = 0 \implies b=0$
 $c = 0$
 Quindi $(a, b, c) = (0, 0, 0)$. Anche in questo caso non esiste un elemento non nullo, quindi $(1, 1, 0)$ **non** è un divisore dello zero.
+
+\section{Svolgimento Esame 16 Luglio}
+\begin{center}
+	\includegraphics[scale=.85]{pdf/25-07-16.pdf}
+\end{center}
+
+\subsection*{Esercizio 1}
+La proposizione $\forall x((\forall y,z((y\in x\wedge z\in x)\rightarrow y=z))\rightarrow\exists a(x=\{a\}))$ è falsa.
+Per dimostrarlo, è sufficiente trovare un controesempio, cioè un insieme $x$ per cui la proposizione non è verificata.
+Consideriamo l'insieme vuoto, $x = \emptyset$.
+\begin{itemize}
+    \item L'antecedente della prima implicazione, $(y\in x\wedge z\in x)$, è sempre falso perché non esistono elementi in $x$. Poiché l'antecedente è falso, l'implicazione $(y\in x\wedge z\in x)\rightarrow y=z$ è sempre vera.
+    \item Di conseguenza, la proposizione quantificata $(\forall y,z((y\in x\wedge z\in x)\rightarrow y=z))$ è vera.
+    \item Consideriamo ora il conseguente della seconda implicazione, $\exists a(x=\{a\})$. Se $x=\emptyset$, non esiste un elemento $a$ tale che $x=\{a\}$, quindi la proposizione è falsa.
+\end{itemize}
+La proposizione completa diventa quindi: $(\text{vero}) \rightarrow (\text{falso})$, che è falsa. Poiché non è vera per ogni $x$, la proposizione iniziale è falsa.
+
+\subsection*{Esercizio 2}
+Dobbiamo risolvere la congruenza $360n+3\equiv_{123}129n+45.$
+\begin{itemize}
+    \item Riscriviamo la congruenza: $360n - 129n \equiv 45 - 3 \pmod{123}$.
+    \item Otteniamo: $231n \equiv 42 \pmod{123}$.
+    \item Calcoliamo il Massimo Comun Divisore tra 231 e 123 utilizzando l'algoritmo di Euclide:
+    \begin{itemize}
+        \item $231 = 1 \cdot 123 + 108$
+        \item $123 = 1 \cdot 108 + 15$
+        \item $108 = 7 \cdot 15 + 3$
+        \item $15 = 5 \cdot 3 + 0$
+    \end{itemize}
+    Il MCD è 3. Poiché $3$ divide 42, esistono soluzioni. Dividiamo per 3 tutti i termini della congruenza:
+    \item $\frac{231}{3}n \equiv \frac{42}{3} \pmod{\frac{123}{3}}$
+    \item $77n \equiv 14 \pmod{41}$.
+    \item Per trovare $n$, dobbiamo calcolare l'inverso di $77 \pmod{41}$.
+    $77 \equiv 36 \equiv -5 \pmod{41}$.
+    Quindi, l'inverso di $-5 \pmod{41}$ è $8$, poiché $(-5) \cdot (-8) = 40 \equiv -1 \pmod{41}$. Oh, scusa, è $(-5) \cdot 8 = -40 \equiv 1 \pmod{41}$. Quindi l'inverso è $8$.
+    \item Moltiplichiamo entrambi i membri della congruenza per 8:
+    $8 \cdot 77n \equiv 8 \cdot 14 \pmod{41}$
+    $1n \equiv 112 \pmod{41}$
+    $112 = 2 \cdot 41 + 30$, quindi $112 \equiv 30 \pmod{41}$.
+    \item Le soluzioni sono $n \equiv 30 \pmod{41}$.
+
+\end{itemize}
+
+\subsection*{Esercizio 3}
+Sia la relazione binaria definita in $S:=\mathbb{N}\times\mathbb{N}$ da: $(a, b) \theta (c,d)\iff(a\le c\wedge b\ge d)$.
+\begin{itemize}
+    \item[(i)] \textbf{Verifica che è una relazione d'ordine:}
+    \begin{itemize}
+        \item \textbf{Riflessività:} $(a,b)\theta(a,b)$ è vero poiché $a\le a$ e $b\ge b$.
+        \item \textbf{Antisimmetria:} Se $(a,b)\theta(c,d)$ e $(c,d)\theta(a,b)$, allora $a\le c$ e $b\ge d$, e $c\le a$ e $d\ge b$. Questo implica che $a=c$ e $b=d$, quindi $(a,b)=(c,d)$.
+        \item \textbf{Transitività:} Se $(a,b)\theta(c,d)$ e $(c,d)\theta(e,f)$, allora $a\le c\le e$ e $b\ge d\ge f$. Questo implica che $a\le e$ e $b\ge f$, ovvero $(a,b)\theta(e,f)$.
+    \end{itemize}
+    La relazione è d'ordine. Non esistono elementi minimali, massimali, minimo o massimo, poiché per ogni $(a,b)$ esiste un elemento $(a-1, b+1)$ più piccolo e $(a+1, b-1)$ più grande, a meno che $a=0$.
+
+    \item[(ii)] \textbf{Insiemi di minoranti e maggioranti di $H$:}
+    Sia $H:=\{8,11\}\times\{2n+1|n\in\mathbb{N}\} = \{(8,1), (8,3), (8,5), \dots, (11,1), (11,3), (11,5), \dots\}$.
+    \begin{itemize}
+        \item \textbf{Minoranti:} L'insieme dei minoranti di $H$ è dato da $\{(a,b)\in S | (a,b)\theta(c,d) \forall (c,d)\in H\}$.
+        Questo implica che $a\le c$ e $b\ge d$ per ogni $(c,d)\in H$. Per la prima componente, $a\le 8$ e $a\le 11$, quindi $a\le 8$. Per la seconda, $b\ge 2n+1$ per ogni $n\in\mathbb{N}$, il che è impossibile. L'insieme dei minoranti è l'insieme vuoto, $\emptyset$.
+        \item \textbf{Maggioranti:} L'insieme dei maggioranti di $H$ è dato da $\{(a,b)\in S | (c,d)\theta(a,b) \forall (c,d)\in H\}$.
+        Questo implica che $c\le a$ e $d\ge b$ per ogni $(c,d)\in H$. Questo è possibile per ogni coppie (a,b) t.c a >= 11 AND b <= 1
+    \end{itemize}
+    \item[(iii)] \textbf{È un reticolo?}
+    No, $(S, \theta)$ non è un reticolo
+
+	\item[(iv)] \textbf{Def sottoreticolo e Birkhoff} 
+	La trovate nelle dispense
+
+	\item[(v)] \textbf{Disegnare Hasse dell'insieme T:}
+	
+	\begin{center}
+		\begin{tikzpicture}
+			% Nodi
+			\node (n46) at (0,3) {$(4,6)$};
+			\node (n55) at (3,3) {$(5,5)$};
+			\node (n58) at (6,3) {$(5,8)$};
+	
+			\node (n27) at (3,2) {$(2,7)$};
+			\node (n17) at (3,1) {$(1,7)$};
+			\node (n18) at (3,0) {$(1,8)$};
+			\node (n09) at (3,-1) {$(0,9)$};
+			
+			\node (n29) at (5,1.5) {$(2,9)$};
+			
+			% Collegamenti
+			\draw (n46) -- (n27);
+			\draw (n55) -- (n27);
+			\draw (n58) -- (n27);
+			
+			\draw (n27) -- (n17);
+			\draw (n17) -- (n18);
+			\draw (n18) -- (n09);
+			
+			\draw (n58) -- (n29);
+			\draw (n29) -- (n17);
+			\draw (n18) -- (n58);
+			\draw (n29) -- (n09);
+			
+		\end{tikzpicture}
+	\end{center}
+
+	Non è un reticolo perch avrà infiniti minimali visto che ad esempio (0, 0) e (0, 1) non sono in relazione
+
+	\item[(vi)] \textbf{ Se (S, θ) è un reticolo, stabilire se (T, θ) ne è un sottoreticolo} 
+
+	Non può essere un reticolo visto che quello "originale" non lo è e quindi non c'è alcun INF e SUP
+
+\end{itemize}
+
+\subsection*{Esercizio 4}
+Per ogni insieme finito $a$ ed ogni applicazione $f:a\rightarrow b$ si consideri la relazione binaria $\mathcal{B}_{f}$ definita in $\mathcal{P}(a)$ da:
+$\forall x,y\in\mathcal{P}(a)(x\mathcal{B}_{f}y\iff|f(x)|=|f(y)|)$.
+\begin{itemize}
+    \item[(i)] \textbf{Dimostrazione che $\mathcal{B}_{f}$ è una relazione di equivalenza:}
+    \begin{itemize}
+        \item \textbf{Riflessività:} Per ogni $x\in\mathcal{P}(a)$, $|f(x)|=|f(x)|$. Quindi $x\mathcal{B}_{f}x$.
+        \item \textbf{Simmetria:} Per ogni $x,y\in\mathcal{P}(a)$, se $x\mathcal{B}_{f}y$, allora $|f(x)|=|f(y)|$. Questo implica $|f(y)|=|f(x)|$, quindi $y\mathcal{B}_{f}x$.
+        \item \textbf{Transitività:} Per ogni $x,y,z\in\mathcal{P}(a)$, se $x\mathcal{B}_{f}y$ e $y\mathcal{B}_{f}z$, allora $|f(x)|=|f(y)|$ e $|f(y)|=|f(z)|$. Per la proprietà transitiva dell'uguaglianza, $|f(x)|=|f(z)|$, quindi $x\mathcal{B}_{f}z$.
+    \end{itemize}
+    Poiché le tre proprietà sono verificate, $\mathcal{B}_{f}$ è una relazione di equivalenza.
+
+    \item[(ii)] \textbf{Nel caso in cui $a$ sia un insieme di cardinalità 10 e $f$ sia iniettiva:}
+    \begin{itemize}
+        \item a.) Sia $x$ una parte di $a$ tale che $|x|=4$. Poiché $f$ è iniettiva, $|f(x)|=|x|=4$.
+        La classe di equivalenza $[x]_{\mathcal{B}_{f}}$ è l'insieme di tutte le parti $y\in\mathcal{P}(a)$ tali che $|f(y)|=|f(x)|=4$. Poiché $f$ è iniettiva, questo è equivalente a $|y|=4$.
+        $[x]_{\mathcal{B}_{f}} = \{ y\in\mathcal{P}(a) \mid |y|=4 \}$.
+        La cardinalità di questa classe è il numero di sottoinsiemi di $a$ con 4 elementi, che è dato dal coefficiente binomiale $\binom{10}{4}$:
+        $|[x]_{\mathcal{B}_{f}}| = \binom{10}{4} = \frac{10!}{4!6!} = \frac{10\cdot9\cdot8\cdot7}{4\cdot3\cdot2\cdot1} = 210$.
+        \item b.) Le classi di equivalenza sono determinate dalla cardinalità dell'immagine, che in questo caso è equivalente alla cardinalità dei sottoinsiemi di $a$. Poiché $|a|=10$, i sottoinsiemi possono avere cardinalità da 0 a 10. Pertanto, ci sono 11 classi di equivalenza, una per ogni possibile cardinalità, da 0 a 10.
+        $|\mathcal{P}(a)/\mathcal{B}_{f}| = 11$.
+    \end{itemize}
+
+    \item[(iii)] \textbf{Nel caso in cui $a=\{n\in\mathbb{N}|n<8\}$ e $f$ è l'applicazione $n\mapsto\begin{cases}1,&se~n\text{ è pari}\\ 0,&se~n\text{ è dispari}\end{cases}$:}
+    Sia $P=\{0,2,4,6\}$ e $D=\{1,3,5,7\}$. $|P|=4$ e $|D|=4$.
+    \begin{itemize}
+        \item \textbf{$|[\emptyset]_{\mathcal{B}_{f}}| $}: $f(\emptyset) = \emptyset$, quindi $|f(\emptyset)|=0$. La classe di equivalenza contiene tutti gli insiemi $y$ tali che $|f(y)|=0$. Questo accade solo se $y=\emptyset$. Quindi $|[\emptyset]_{\mathcal{B}_{f}}|=1$.
+        \item \textbf{$|[\{2\}]_{\mathcal{B}_{f}}| $}: $f(\{2\}) = \{1\}$, quindi $|f(\{2\})|=1$. La classe contiene tutti i sottoinsiemi $y$ tali che $|f(y)|=1$. Questo accade se $y$ contiene solo elementi pari (escluso $\emptyset$) o solo elementi dispari (escluso $\emptyset$).
+        I sottoinsiemi non vuoti di $P$ sono $2^4-1=15$.
+        I sottoinsiemi non vuoti di $D$ sono $2^4-1=15$.
+        $|[\{2\}]_{\mathcal{B}_{f}}| = 15+15=30$.
+        \item \textbf{$|[\{2,3\}]_{\mathcal{B}_{f}}|$}: $f(\{2,3\}) = \{1,0\}$, quindi $|f(\{2,3\})|=2$. La classe contiene tutti i sottoinsiemi $y$ tali che $|f(y)|=2$. Questo accade se $y$ contiene almeno un elemento pari e almeno un elemento dispari.
+        Il numero totale di sottoinsiemi di $a$ è $2^8=256$.
+        I sottoinsiemi che contengono solo elementi pari (e non il vuoto) sono 15.
+        I sottoinsiemi che contengono solo elementi dispari (e non il vuoto) sono 15.
+        L'unico sottoinsieme che produce un'immagine vuota è l'insieme vuoto stesso.
+        Il numero di insiemi con cardinalità $|f(y)|=2$ è $2^8 - (2^4-1) - (2^4-1) - 1 = 256 - 15 - 15 - 1 = 225$.
+        $|[\{2,3\}]_{\mathcal{B}_{f}}|=225$.
+        \item \textbf{$|\mathcal{P}(a)/\mathcal{B}_{f}|$}: Il numero di classi di equivalenza è il numero di possibili cardinalità delle immagini. Le immagini possono essere $\emptyset$, $\{0\}$, $\{1\}$, o $\{0,1\}$. Le loro cardinalità sono rispettivamente 0, 1, 1, 2. Quindi, le possibili cardinalità dell'immagine sono 0, 1, 2. Questo significa che ci sono 3 classi di equivalenza.
+        $|\mathcal{P}(a)/\mathcal{B}_{f}|=3$.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Esercizio 5}
+Sia $A$ l'insieme dei numeri reali non negativi; consideriamo l'operazione $*:(a,b)\in A\times A\mapsto\sqrt{a^{2}+b^{2}}\in A$.
+\begin{itemize}
+    \item[(i)] \textbf{Commutativa e associativa:}
+    \begin{itemize}
+        \item \textbf{Commutativa:} $a*b = \sqrt{a^2+b^2} = \sqrt{b^2+a^2} = b*a$. L'operazione è commutativa.
+        \item \textbf{Associativa:} $(a*b)*c = \sqrt{(a*b)^2+c^2} = \sqrt{(\sqrt{a^2+b^2})^2+c^2} = \sqrt{a^2+b^2+c^2}$.
+        $a*(b*c) = \sqrt{a^2+(b*c)^2} = \sqrt{a^2+(\sqrt{b^2+c^2})^2} = \sqrt{a^2+b^2+c^2}$.
+        L'operazione è associativa.
+    \end{itemize}
+    \item[(ii)] \textbf{Struttura algebrica:}
+    \begin{itemize}
+        \item \textbf{Elemento neutro:} L'elemento neutro $e$ è tale che $a*e = a$ per ogni $a\in A$.
+        $\sqrt{a^2+e^2}=a \implies a^2+e^2=a^2 \implies e^2=0 \implies e=0$. L'elemento neutro è $0$.
+        \item \textbf{Elementi simmetrizzabili:} Un elemento $a$ è simmetrizzabile se esiste $a'$ tale che $a*a'=0$.
+        $\sqrt{a^2+a'^2}=0 \implies a^2+a'^2=0$. Dato che $a,a' \ge 0$, l'unica soluzione è $a=0$ e $a'=0$.
+        Solo l'elemento $0$ è simmetrizzabile.
+    \end{itemize}
+    Poiché l'operazione è associativa, ha un elemento neutro ed è commutativa, la struttura $(A, *)$ è un **monoide abeliano**.
+
+    \item[(iii)] \textbf{Parti chiuse:}
+    \begin{itemize}
+        \item \textbf{$\{1\}$:} Non è chiusa. $1*1 = \sqrt{1^2+1^2} = \sqrt{2}$, che non appartiene a $\{1\}$.
+        \item \textbf{$A\cap\mathbb{Q}$:} Non è chiusa. Ad esempio, $1\in A\cap\mathbb{Q}$, ma $1*1=\sqrt{2}$, che non è un numero razionale.
+        \item \textbf{$\{\sqrt{a}|a\in A\cap\mathbb{Q}\}$:} È chiusa. Siano $x,y$ due elementi dell'insieme. Allora $x=\sqrt{a}$ e $y=\sqrt{b}$ con $a,b\in\mathbb{Q}$ e $a,b\ge 0$.
+        $x*y=\sqrt{x^2+y^2}=\sqrt{(\sqrt{a})^2+(\sqrt{b})^2}=\sqrt{a+b}$.
+        Dato che la somma di due numeri razionali è un numero razionale, $a+b$ è un numero razionale non negativo. Quindi $\sqrt{a+b}$ appartiene all'insieme. L'insieme è chiuso.
+    \end{itemize}
+\end{itemize}
