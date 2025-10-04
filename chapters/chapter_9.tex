@@ -1346,7 +1346,7 @@ F & V & V
 
 Se $\psi$ è una contraddizione, quindi sempre F, e $\varphi \to \psi$ una tautologia, allora $\psi$ sarà F.
 
-\subsection{Esercizio 3}
+\subsection*{Esercizio 3}
 
 \subsubsection*{(i) Verificare che $(A, \oplus, *)$ è un anello}
 
@@ -1686,6 +1686,277 @@ $$n = \{17\}_{46}$$
 
 \section{Esame del 14 marzo 2025}
 
+\subsection*{Esercizio 1. Sia $\star$ l'operazione binaria definita in $\mathbb{Z}_{21}$ ponendo, per ogni $a, b \in \mathbb{Z}_{21}$,
+$$ \overline{a} \star \overline{b} = \overline{3ab} + \overline{10}(\overline{a} - \overline{b}) + \overline{2}. $$}
+
+\subsubsection*{(i) $\star$ è associativa? È commutativa?}
+
+\textbf{Commutatività:}
+L'operazione $\star$ è commutativa se e solo se $\overline{a} \star \overline{b} = \overline{b} \star \overline{a}$ per ogni $\overline{a}, \overline{b} \in \mathbb{Z}_{21}$.
+\begin{align*}
+\overline{a} \star \overline{b} &= \overline{3ab} + \overline{10a} - \overline{10b} + \overline{2} \\
+\overline{b} \star \overline{a} &= \overline{3ba} + \overline{10b} - \overline{10a} + \overline{2}
+\end{align*}
+Affinché $\overline{a} \star \overline{b} = \overline{b} \star \overline{a}$, dobbiamo avere:
+$$ \overline{10a} - \overline{10b} \equiv \overline{10b} - \overline{10a} \pmod{21} $$
+$$ \overline{20a} \equiv \overline{20b} \pmod{21} $$
+Poiché $\overline{20} \equiv \overline{-1} \pmod{21}$:
+$$ \overline{-a} \equiv \overline{-b} \pmod{21} \implies \overline{a} \equiv \overline{b} \pmod{21} $$
+L'operazione $\star$ è commutativa \textbf{solo se} $\overline{a} = \overline{b}$. Poiché non vale per ogni coppia, l'operazione $\star$ \textbf{non è commutativa}.
+
+\textbf{Associatività:}
+Controesempio: $\overline{1}, \overline{0}, \overline{0}$.
+$$ (\overline{1} \star \overline{0}) \star \overline{0} = \overline{12} \star \overline{0} = \overline{3(12)(0)} + \overline{10}(\overline{12} - \overline{0}) + \overline{2} = \overline{122} \equiv \overline{17} \pmod{21} $$
+$$ \overline{1} \star (\overline{0} \star \overline{0}) = \overline{1} \star \overline{2} = \overline{3(1)(2)} + \overline{10}(\overline{1} - \overline{2}) + \overline{2} = \overline{6} - \overline{10} + \overline{2} = \overline{-2} \equiv \overline{19} \pmod{21} $$
+Poiché $\overline{17} \ne \overline{19}$, l'operazione $\star$ \textbf{non è associativa}.
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\subsubsection*{(ii) Determinare l'eventuale elemento neutro di $(\mathbb{Z}_{21}, \star)$.}
+
+Si cerca un elemento neutro $\overline{e}$ tale che $\overline{a} \star \overline{e} = \overline{a}$ e $\overline{e} \star \overline{a} = \overline{a}$.
+
+\textbf{Ricerca del Neutro Destro ($\overline{a} \star \overline{e} = \overline{a}$):}
+$$ e(3a - 10) \equiv -9a - 2 \pmod{21} $$
+Se $\overline{a}=\overline{0}$, si trova $\overline{-10e} \equiv \overline{-2} \implies \overline{11e} \equiv \overline{19} \implies \overline{e} = \overline{17}$.
+Verifica con $\overline{a}=\overline{1}$:
+$$ \overline{17}(\overline{3} - \overline{10}) \equiv \overline{17} \cdot \overline{-7} = \overline{-119} \equiv \overline{7} \pmod{21} $$
+Mentre $\overline{-9a} - \overline{2} = \overline{-9} - \overline{2} = \overline{-11} \equiv \overline{10} \pmod{21}$. Poiché $\overline{7} \ne \overline{10}$, la condizione fallisce.
+
+\textbf{Ricerca del Neutro Sinistro ($\overline{e} \star \overline{a} = \overline{a}$):}
+$$ e(3a + 10) \equiv 11a - 2 \pmod{21} $$
+Se $\overline{a}=\overline{1}$, si trova $\overline{13e} \equiv \overline{9} \implies \overline{e} = \overline{18}$.
+Verifica con $\overline{a}=\overline{0}$:
+$$ \overline{18}(\overline{10}) = \overline{180} \equiv \overline{12} \pmod{21} $$
+Mentre $\overline{11a} - \overline{2} = \overline{-2} \equiv \overline{19} \pmod{21}$. Poiché $\overline{12} \ne \overline{19}$, la condizione fallisce.
+
+\textbf{Conclusione:} L'elemento neutro \textbf{non esiste}.
+Di conseguenza: a.) \textbf{nessun} elemento è invertibile; b.) $(\mathbb{Z}_{21}, \star)$ \textbf{non è un gruppo}.
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\subsubsection*{(iii) $\{\overline{0}\}$ è una parte chiusa in $(\mathbb{Z}_{21}, \star)$?}
+
+Verifichiamo se $\overline{0} \star \overline{0} \in \{\overline{0}\}$:
+$$ \overline{0} \star \overline{0} = \overline{3(0)(0)} + \overline{10}(\overline{0} - \overline{0}) + \overline{2} = \overline{2} $$
+Poiché $\overline{2} \ne \overline{0}$, l'insieme $\{\overline{0}\}$ \textbf{non è una parte chiusa} in $(\mathbb{Z}_{21}, \star)$.
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\subsection*{Esercizio 2. Sia $A = \{n \in \mathbb{N} \mid n < 10\}$ e sia $E$ l'insieme delle relazioni di equivalenza $\sigma$ in $A$ tali che $1 \sigma 7$ e $\overline{1}_{\sigma} \cap \overline{3}_{\sigma} \neq \emptyset$. Vero o falso (e perché)?}
+
+\subsubsection*{Analisi delle Condizioni su $E$}
+Dalle condizioni $1 \sigma 7$ e $\overline{1}_{\sigma} \cap \overline{3}_{\sigma} \neq \emptyset$, si deduce che per ogni $\sigma \in E$:
+$$ \overline{1}_{\sigma} = \overline{7}_{\sigma} = \overline{3}_{\sigma} $$
+Gli elementi $\{1, 3, 7\}$ devono stare nella stessa classe di equivalenza.
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\subsubsection*{(i) Per ogni $X \subseteq A$ tale che $\{1, 2, 3, 7, 8\} \subseteq X$ esiste $\sigma \in E$ tale che $X = \overline{3}_{\sigma}$.}
+
+L'insieme $E$ delle relazioni di equivalenza $\sigma$ su $A = \{1, 2, \dots, 9\}$ è definito dalle condizioni:
+\begin{enumerate}
+    \item $1 \sigma 7 \implies \overline{1}_{\sigma} = \overline{7}_{\sigma}$
+    \item $\overline{1}_{\sigma} \cap \overline{3}_{\sigma} \neq \emptyset \implies \overline{1}_{\sigma} = \overline{3}_{\sigma}$
+\end{enumerate}
+Queste condizioni implicano che, per ogni $\sigma \in E$, gli elementi $\mathbf{\{1, 3, 7\}}$ devono appartenere alla stessa classe di equivalenza:
+$$ \overline{1}_{\sigma} = \overline{3}_{\sigma} = \overline{7}_{\sigma} $$
+
+\subsubsection*{(i) Per ogni $X \subseteq A$ tale che $\{1, 2, 3, 7, 8\} \subseteq X$ esiste $\sigma \in E$ tale che $X = \overline{3}_{\sigma}$.}
+
+\textbf{Giustificazione per l'Esistenza (Interpretazione VERA):}
+Consideriamo il sottoinsieme minimo specificato: $X_0 = \{1, 2, 3, 7, 8\}$. Vogliamo dimostrare che esiste una relazione $\sigma \in E$ tale che $X_0$ sia la classe $\overline{3}_{\sigma}$.
+
+1.  \textbf{Partizione $\mathcal{P}$:} Possiamo costruire una partizione $\mathcal{P}$ di $A$ tale che $X_0$ sia un blocco (una classe di equivalenza). L'insieme degli elementi rimanenti è $A \setminus X_0 = \{4, 5, 6, 9\}$.
+    $$\mathcal{P} = \{ X_0, \{4\}, \{5\}, \{6\}, \{9\} \}$$
+2.  \textbf{Verifica della Condizione $E$:} La partizione $\mathcal{P}$ definisce una relazione $\sigma$.
+    \begin{itemize}
+        \item Poiché $\{1, 3, 7\} \subset X_0$, tutte le classi $\overline{1}_{\sigma}, \overline{3}_{\sigma}, \overline{7}_{\sigma}$ sono uguali a $X_0$.
+        \item Dunque, $1 \sigma 7$ è soddisfatta.
+        \item Dunque, $\overline{1}_{\sigma} \cap \overline{3}_{\sigma} = X_0 \cap X_0 = X_0 \neq \emptyset$ è soddisfatta.
+    \end{itemize}
+    Pertanto, $\sigma \in E$.
+3.  \textbf{Verifica della Condizione $X = \overline{3}_{\sigma}$:} Per costruzione, $\overline{3}_{\sigma} = X_0$.
+
+Dunque, \textbf{esiste} $\sigma \in E$ tale che $X_0 = \overline{3}_{\sigma}$.
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\subsubsection*{(ii) Per ogni $X \subseteq A$ tale che $\{1, 2, 3, 7, 8\} \subseteq X$ esiste $\sigma \in E$ tale che $X = \overline{2}_{\sigma}$.}
+\textbf{VERO}.
+Sia $X = \{1, 2, 3, 7, 8\}$. Vogliamo $\overline{2}_{\sigma} = X$.
+Poiché $1 \in X$ e $2 \in X$, la classe $\overline{2}_{\sigma}$ deve contenere $\overline{1}_{\sigma}$.
+In una partizione $\mathcal{P} = \{X, \{4\}, \{5\}, \{6\}, \{9\}\}$, si ha $\overline{2}_{\sigma} = X$.
+Inoltre, $\overline{1}_{\sigma} = \overline{3}_{\sigma} = \overline{7}_{\sigma} = X$, quindi $\sigma \in E$ è soddisfatta.
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\subsubsection*{(iii) Per ogni $X \subseteq A$ tale che $\{1, 2, 3\} \subseteq X$ esiste $\sigma \in E$ tale che $X = \overline{2}_{\sigma}$.}
+\textbf{FALSO}.
+Se $X$ è la classe $\overline{2}_{\sigma}$, e $\overline{1}_{\sigma} \subseteq X$, allora deve valere $\overline{1}_{\sigma} = \overline{7}_{\sigma} = X$.
+Se $X = \{1, 2, 3\}$, allora $\overline{7}_{\sigma} = \{1, 2, 3\}$, il che è assurdo poiché $7 \notin \{1, 2, 3\}$. Non esiste $\sigma \in E$ con $X = \overline{2}_{\sigma}$ in questo caso.
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\subsubsection*{(iv) Esiste $\sigma \in E$ tale che $\overline{2}_{\sigma} = \{2, 9\}$;}
+\textbf{VERO}.
+Dobbiamo costruire una partizione $\mathcal{P}$ in cui $\{2, 9\}$ sia una classe e $\{1, 3, 7\}$ stiano in un'altra classe.
+Sia $B = \{1, 3, 7\}$. Il resto degli elementi è $R = A \setminus (B \cup \{2, 9\}) = \{4, 5, 6, 8\}$.
+Una partizione è:
+$$ \mathcal{P} = \{\{1, 3, 7\}, \{2, 9\}, \{4\}, \{5\}, \{6\}, \{8\}\} $$
+In $\mathcal{P}$, $\overline{2}_{\sigma} = \{2, 9\}$ (OK) e $\overline{1}_{\sigma} = \overline{3}_{\sigma} = \overline{7}_{\sigma} = \{1, 3, 7\}$, quindi $\sigma \in E$ è soddisfatta.
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\subsubsection*{(v) $|E| = \binom{10}{3}$.}
+\textbf{FALSO}.
+Il numero di relazioni $|E|$ è il numero di partizioni dell'insieme $A' = \{\{1, 3, 7\}, 2, 4, 5, 6, 8, 9\}$, che ha 7 elementi.
+$$ |E| = \text{Numero di Bell } B_7 = 877 $$
+Mentre $\binom{10}{3} = 120$.
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\subsubsection*{(vi) $|E| = 2^7$.}
+\textbf{FALSO}.
+Come calcolato, $|E| = B_7 = 877$. Poiché $2^7 = 128$, l'affermazione è falsa.
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\subsection*{Esercizio 4. Sia $S = \{a, \{a\}, b\}$, dove assumiamo $a \neq b \neq \{a\}$. Siano $T = \mathcal{P}(S) \times \mathcal{P}(S)$ e $f$ l'applicazione $f((x, y)) = |x \triangle y|$ con codominio $\{0, 1, 2, 3, 4, 5, 6\}$.}
+
+\subsubsection*{(i) $f$ è iniettiva? È suriettiva?}
+
+\textbf{Iniettività:}
+Non è iniettiva. 
+$$ f((\{a\}, \{\{a\}\})) = |\{a, \{a\}\}| = 2 $$
+$$ f((\{a\}, \{b\})) = |\{a, b\}| = 2 $$
+Poiché $(\{a\}, \{\{a\}\}) \ne (\{a\}, \{b\})$ ma $f$ ha lo stesso valore, \textbf{NON è INIETTIVA}.
+
+\textbf{Suriettività:}
+Poiché $|x \triangle y| \le |S| = 3$, l'immagine di $f$ è $\text{Im}(f) = \{0, 1, 2, 3\}$.
+Il codominio è $\{0, 1, 2, 3, 4, 5, 6\}$. Gli elementi $\{4, 5, 6\}$ non sono mai raggiunti.
+\textbf{NON è SURIETTIVA}.
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\subsubsection*{(ii) Determinare $f^{\leftarrow}(\{0\})$, $f^{\leftarrow}(\{3\})$, $f^{\rightarrow}(T)$.}
+
+\paragraph*{Immagine inversa di $\{0\}$:}
+$$ f^{\leftarrow}(\{0\}) = \{(x, y) \in T \mid |x \triangle y| = 0\} = \{(x, S \ x) \mid x \in \mathcal{P}(S)\} $$
+
+\paragraph*{Immagine inversa di $\{3\}$:}
+$$ f^{\leftarrow}(\{3\}) = \{(x, y) \in T \mid |x \triangle y| = 3\} $$
+Poiché $|S|=3$, $|x \triangle y| = 3$ se e solo se $x$ e $y$ formano una partizione di $S$ (cioè $x \cap y = \emptyset$ e $x \cup y = S$).
+$$ f^{\leftarrow}(\{3\}) = \{(x, S \setminus x) \mid x \in \mathcal{P}(S)\} $$
+
+\paragraph*{Immagine diretta di $T$:}
+$$ f^{\rightarrow}(T) = \{|x \triangle y| \mid x, y \in \mathcal{P}(S)\} = \{0, 1, 2, 3\} $$
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\subsubsection*{(iii) Determinare eventuali minimo, massimo, elementi minimali e massimali in $(T, \rho)$.}
+
+La relazione d'ordine $\rho$ è definita da: $(x, y) \rho (z, t) \iff ((x, y) = (z, t) \lor f((x, y)) < f((z, t)))$.
+
+\paragraph*{Elementi Minimali}
+Sono le coppie con il valore minimo di $f$, ovvero $f((x, y)) = 0$.
+$$ \text{Minimali} = \{(x, x) \mid x \in \mathcal{P}(S)\} $$
+Ci sono $2^3 = \mathbf{8}$ elementi minimali (incomparabili tra loro). Non esiste un unico elemento minimo.
+
+\paragraph*{Elementi Massimali}
+Sono le coppie con il valore massimo di $f$, ovvero $f((x, y)) = 3$.
+$$ \text{Massimali} = \{(x, S \setminus x) \mid x \in \mathcal{P}(S)\} $$
+Ci sono $\mathbf{8}$ elementi massimali (incomparabili tra loro). Non esiste un unico elemento massimo.
+
+\paragraph*{Minimo e Massimo}
+\textbf{Minimo:} Non esiste. \textbf{Massimo:} Non esiste.
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\subsubsection*{(iv) Determinare in $(T, \rho)$ un sottoinsieme totalmente ordinato del massimo ordine possibile.}
+
+Guardare lo svolgimento del 5° punto.
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\subsubsection*{(v) Disegnare un diagramma di Hasse di $L = \{(\{a\}, \{a\}), (\{a, b\}, \{a, b\}), (\{a\}, \{\{a\}\}), (\{a, b\}, \{\{a\}\})\}$ ordinato dalla relazione indotta da $\rho$.}
+
+Gli elementi originali con i loro valori di $f$ sono:
+$a = (\{a\}, \{a\})$
+$b = (\{a, b\}, \{a, b\})$
+$c = (\{a\}, \{\{a\}\})$
+$d = (\{a, b\}, \{\{a\}\})$
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[node distance=1.5cm, auto, thick, scale=1.0]
+        % Nodi disposti verticalmente per formare una colonna
+        \node (d_node) at (0, 7.0) {$d$};
+        % \node (f3_label) at (0, 3.8) {}; % Spazio per livello 3 (non etichettato con f=3 nell'immagine)
+        
+		\node (b_node) at (0, 5.0) {$b$};
+
+        \node (a_node) at (0, 3.0) {$a$};
+		
+		\node (c_node) at (0, 0.5) {$c$};
+        % \node (f2_label) at (0, 1.8) {}; % Spazio per livello 2
+		
+        \draw (c_node) -- (a_node);
+        \draw (a_node) -- (b_node);
+		\draw (b_node) -- (d_node);
+    \end{tikzpicture}
+\end{figure}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\subsection*{Esercizio 5. Decidere se $(p \to p) \to (((q \to (r \wedge s)) \leftrightarrow ((q \to r) \wedge (q \to s))))$ è una tautologia.}
+
+\subsubsection*{Svolgimento}
+
+La proposizione da analizzare è:
+$$ (p \to p) \to (((q \to (r \wedge s)) \leftrightarrow ((q \to r) \wedge (q \to s)))) $$
+
+La sotto-proposizione $p \to p$ è una tautologia ($\text{V}$). La proposizione si semplifica a:
+$$ \text{V} \to (((q \to (r \wedge s)) \leftrightarrow ((q \to r) \wedge (q \to s)))) $$
+Che è logicamente equivalente a:
+$$ (q \to (r \wedge s)) \leftrightarrow ((q \to r) \wedge (q \to s)) $$
+
+Questa è la nota \textbf{Proprietà Distributiva dell'Implicazione sulla Congiunzione}, che è un'equivalenza logica. Pertanto, la bicondizionale tra i due lati è sempre Vera.
+
+\textbf{Conclusione:} La proposizione è una \textbf{tautologia}.
+(La tabella di verità fornita è una verifica formale di questa equivalenza logica).
+
+
 \section{Esame del 19 giugno 2025}
 \begin{center}
     \includegraphics[scale=.85]{pdf/25-06-19.pdf}
@@ -1877,7 +2148,7 @@ $b + a = 0 \implies b=0$
 $c = 0$
 Quindi $(a, b, c) = (0, 0, 0)$. Anche in questo caso non esiste un elemento non nullo, quindi $(1, 1, 0)$ **non** è un divisore dello zero.
 
-\section{Esame del 16 Luglio 2025}
+\section{Esame del 16 luglio 2025}
 \begin{center}
 	\includegraphics[scale=.85]{pdf/25-07-16.pdf}
 \end{center}
@@ -2060,3 +2331,5 @@ Sia $A$ l'insieme dei numeri reali non negativi; consideriamo l'operazione $*:(a
         Dato che la somma di due numeri razionali è un numero razionale, $a+b$ è un numero razionale non negativo. Quindi $\sqrt{a+b}$ appartiene all'insieme. L'insieme è chiuso.
     \end{itemize}
 \end{itemize}
+
+\section{Esame del 11 settembre 2025}
