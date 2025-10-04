@@ -1327,6 +1327,364 @@ Un grafo semplice è un grafo non orientato. Una coppia $G=(V,R)$ è un grafo se
 	\item $V$ non ha circuiti euleriani in quanto $deg(5)$ non è pari.
 \end{enumerate}
 
+\section{Esame del 15 gennaio 2025}
+
+\subsection*{Esercizio 1}
+
+Se $\varphi \to \psi$ è una tautologia e $\psi$ è una contraddizione, cosa possiamo concludere su $\varphi$?
+
+\begin{center}
+\begin{tabular}{c|c|c}
+$\varphi$ & $\psi$ & $\varphi \to \psi$ \\
+\hline
+V & V & V \\
+V & F & F \\
+F & V & V \\
+F & V & V
+\end{tabular}
+\end{center}
+
+Se $\psi$ è una contraddizione, quindi sempre F, e $\varphi \to \psi$ una tautologia, allora $\psi$ sarà F.
+
+\subsection{Esercizio 3}
+
+\subsubsection*{(i) Verificare che $(A, \oplus, *)$ è un anello}
+
+Definiamo, in $A = \mathbb{Q} \times \mathbb{Q}$, le operazioni binarie $\oplus$ e $*$ ponendo, per ogni $a, b, x, y \in \mathbb{Q}$:
+$$(a,b) \oplus (x,y) = (a+x, b+y); \qquad (a,b) * (x,y) = (0, ax).$$
+
+\subsubsection*{Considerazioni sulla 1° operazione}
+
+Visto che alla fine è un'addizione sarà sicuramente commutativo, associativo e avrà neutro sia a sx che a dx che sarà 0. Ogni elemento è invertibile perché siamo in Q, quindi è un gruppo abeliano
+
+\subsubsection*{Considerazioni sulla 2° operazione}
+
+\begin{align*}
+\text{ASS: } [(a,b) * (x,y)] * (l,l) &\Leftrightarrow (a,b) * [(x,y) * (l,l)] \\
+(0, ax) * (l,l) &\Leftrightarrow (a,b) * (0, xl) \\
+(0, axl) &\Leftrightarrow (0, axl) \quad \text{è ASS}
+\end{align*}
+
+\subsubsection*{Considerazioni sulla distributività della 2° operazione rispetto alla 1°}
+
+\begin{align*}
+(a,b) * ((c,d) \oplus (x,l)) \\
+((a,b) * (c,d)) \oplus ((a,b) * (x,l)) &\quad A \text{ SX va fatta la stessa cosa} \\
+(0, ac) \oplus (0, ax) &\Leftrightarrow (0, az + ax) \\
+(a,b) * ((c+x, d+l)) &\Leftrightarrow (0, ac + ax)
+\end{align*}
+
+\text{Sono uguali}
+
+\subsubsection*{(ii) Decidere se $(A, \oplus, *)$ è unitario, se è commutativo, se è booleano, se è integro}
+
+\textbf{Unitario:} Se $(A,*)$ è un monoide
+$$(1,1) * (x,y) \Leftrightarrow (x,y) * (1,1)$$
+$$(0,x) \Leftrightarrow (0,x)$$
+Non è un monoide perché non ha neutro.
+
+\textbf{È commutativo:} se $(A,\oplus)$ e $(A,*)$ lo sono, lo è:
+$$(a,b) * (x,y) \Leftrightarrow (x,y) * (a,b)$$
+$$(0,ax) \Leftrightarrow (0,xa) \quad \checkmark$$
+
+\textbf{È booleano se:} è idempotente (ovvero $x^2 = x$) e unitario. Già abbiamo verificato che è unitario ma non idempotente
+
+\textbf{Integro se} $(A,*)$ ha la LAP, quindi vale che:
+$$\forall x, y \in S (x * y = 0_A \Rightarrow x = 0_A \lor y = 0_A)$$
+
+Questo non è valido per tutte le coppie quindi non è integro. Infatti $(0,1) * (1,0) = (0,0)$ quindi non vale la LAP perché abbiamo ottenuto $(0,0)$ anche se le coppie $x*y$ non sono $0_A$.
+
+\subsubsection*{(iii) Di ciascuno tra $(5,3)$ e $(5,0)$ stabilire se è un divisore dello zero in $(A, \oplus, *)$}
+
+$(5,3)$ è divisore dello 0 in $(A, \oplus, *)$ se
+$$\exists y \in A : x * y = 0_A \land x \neq 0_A \land y \neq 0_A$$
+
+$$(5,3) * (x,y) = (0,5x) \quad \text{non mi dà } (0,0)$$
+
+$$(5,0) * (x,y) = (0,0) \quad \text{ok } SX$$
+
+$$(x,y) * (5,0) = (0,x) \quad \text{ok divisore dello 0 } DX$$
+
+\subsubsection*{(iv) $B := \{0\} \times \mathbb{Z}$ è un sottoanello di $(A, \oplus, *)$? Nel caso, $B$ è isomorfo all'anello $(\mathbb{Z}, +, \cdot)$ degli interi? Rispondere alle stesse domande per $C := \mathbb{Z} \times \{0\}$ al posto di $B$}
+
+È un sottoanello se presi $(0, \langle \text{elem } \mathbb{Z} \rangle)$ con la 1ª e 2ª operazione dell'anello mi dà sempre roba dell'anello $B$. In questo caso se uno ci pensa visto che la 1ª operazione è un'addizione la 1ª operazione darà sempre elementi di $B$, idem la 2ª. Ma se prendo $(0,1) * (0,1) = (0,0)$, $B$ non è integro come $\mathbb{Z}$ allora $B$ non è isomorfo a $\mathbb{Z}$. Perché ti ricordo che se l'insieme $B$ non ha le stesse proprietà dell'insieme originale $\mathbb{Z}$ allora $B$ non è isomorfo a $\mathbb{Z}$.
+
+$B$ isomorfo all'anello $(\mathbb{Z}, +, \cdot)$? NO
+
+Se rifaciamo lo stesso prova per $C$ vale lo stesso per $C$ NO perché presi 2 elementi $(1,0) * (3,0) = (0,3) \notin C$.
+
+\subsection*{Esercizio 4}
+
+Sia $a = \{n \in \mathbb{N} \mid n < 10\}$ e $f$ l'applicazione
+$$x \in \mathcal{P}(a) \longmapsto \begin{cases}
+|x| & \text{se } \exists x \notin a \\
+1, & \text{se } 5 \in x
+\end{cases} \quad x \in \mathbb{N}$$
+
+\subsubsection*{(i) $f$ è iniettiva? $f$ è suriettiva?}
+
+Una funzione è iniettiva se per 1 elemento del dominio c'è solo 1 elemento del codominio. Esplicitiamo l'insieme $a$:
+$$a = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$$
+
+Se scelgo $\{0,5\}$ e $\{1,5\}$ diversi elementi del dominio puntano allo stesso elemento del codominio quindi non è sicuramente iniettiva.
+
+Una funzione è suriettiva se per TUTTI gli elementi del codominio c'è ALMENO 1 elemento del dominio. L'immagine di $f$ non è uguale ad $\mathbb{N}$ infatti, per questa funzione elementi come 11, 12, 13 non verranno mai raggiunti quindi non è suriettiva.
+
+\subsubsection*{(ii) Determinare l'immagine im $f = f(\mathcal{P}(a))$ di $f$}
+
+$\mathcal{P}(a)$ sappiamo tutte le combinazioni possibili di $a$, in:
+
+$\{0,5\}, \{2,5\}, \{2,5\} \dots \{0,1,5\}, \{0,2,5\}, \dots$ quindi
+
+$$\text{im } f = f(\mathcal{P}(a)) = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$$
+
+Dato $\rho$ il nucleo di equivalenza di $f$.
+
+\textbf{(iii)} Determinare le classi $[\{1,2\}]_\rho$ e $[5]_\rho$, indicandone il numero di elementi:
+
+$$\{\{1,2\}\}_\rho = \{y \in a : f(\{1,2\}) = f(y)\} = 2 \quad \text{tutte le combinaz di 2 elementi tranne 5}$$
+
+Quindi $\mathcal{P}(a) = \binom{9}{2} = \frac{9!}{2! \cdot 7!} = \frac{9 \cdot 8}{2} = 9 \cdot 4 = 36$
+
+$$\{\{5\}\}_\rho = \{y \in a : f(\{5\}) = f(y)\} = 2^9 + 9$$
+
+quindi se volessi un po' semplificare il ragionamento direi: $2^9$ perché considero 5 come elemento fisso + 9 (singletone di tutti gli altri elementi da 0-9 tranne 5)
+
+\subsubsection*{(iv) Calcolare $|\mathcal{P}(a)/\rho|$}
+
+Usando il teorema dell'omomorfismo tra insiemi la cardinalità di Im $f$ che è $\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$ allora la cardinalità di $|\mathcal{P}(a)/\rho|$ è 10. Perché il vuoto non lo conti separato? Perché se $x = \emptyset$ allora $|x| = 0$ quindi fa parte della funzione.
+
+\subsection*{Esercizio 5}
+
+Per ogni $p \in P := \{2,3,5\}$ e $n \in \mathbb{N}^* = \mathbb{N} \setminus \{0\}$, indichiamo con $f_p(n)$ l'esponente della massima potenza di $p$ che divide $n$, e sia $f(n) = \sum_{p \in P} f_p(n)$. Siano $\sigma$ e $\rho$ le relazioni binarie in $\mathbb{N}^*$ definite da: per ogni $a, b \in \mathbb{N}^*$:
+$$a \,\sigma\, b \leftrightarrow (a = b \lor \forall p \in P\, (p|a \to p^2|b))$$
+e
+$$a \,\rho\, b \leftrightarrow (\forall p \in P\, (p^{f_p(a)}|b) \land (a = b \lor f(a) < f(b))).$$
+
+\subsubsection*{(i) Di ciascuna di $\sigma$ e $\rho$ stabilire se è una relazione d'ordine}
+
+Per entrambe le relazioni non è verificata la relazione d'ordine:
+
+\begin{itemize}
+    \item Per $\sigma$: se proviamo la simmetria per 4 e 8 non è verificata.
+    
+    \item Per $\rho$: se proviamo la simmetria per 2 e 14 non è verificata.
+\end{itemize}
+
+\section {Esame del 20 febbraio 2025}
+
+\subsection*{Esercizio 1}
+
+\subsubsection*{(i) Dare la definizione di numero primo in $\mathbb{Z}$}
+
+Tutti i numeri divisibili solo per 1 e per sé stesso tranne: $-1, 0$ e $1$.
+
+\subsubsection*{(ii) Posto $S = \{-2, -1, 0, 1, 2, 3, 4\}$, determinare il numero dei sottoinsiemi di $S$ che contengono tutti i numeri primi appartenenti ad $S$}
+
+$$\{-2, 2, 3\} \quad 2^3 = 8$$
+
+Eliminando i numeri non considerati primi: $-1, 0$ e $1$ allora $2^3$ saranno tutte le combinazioni possibili.
+
+\subsubsection*{(iii) Quanti sono i sottoinsiemi di $S$ che hanno ordine 3?}
+
+$$\mathcal{P}_3(S) = \binom{m}{k} = \frac{n!}{k!(n-k)!} = \binom{7}{3} = \frac{7!}{3! \cdot 4!} = \frac{7 \cdot 6 \cdot 5}{3} = 7 \cdot 3 \cdot 5 = 105$$
+
+\subsection*{Esercizio 4}
+
+\subsubsection*{(i) Perché $f$ è ben definita?}
+
+Per il teorema dell'aritmetica che assicura ciò è ben definito da 2 in poi per $n = 1$ qualunque sequenza di primi deve essere 0 e quindi ben definito.
+
+\subsubsection*{(ii) $f$ è iniettiva? È suriettiva?}
+
+In questo caso, $f(2) = f(3)$ quindi NON iniettiva.
+
+Suriettiva quando ogni elemento del codominio ha ALMENO 1 corrispondenza nel dominio. È SURIETTIVA perché per ogni $n$, $f(3^n) = n$.
+
+\subsubsection*{(iii) Determinare $\tilde{f}(\{0\})$, $\tilde{f}(\{1\})$, $\tilde{f}(\{8h \mid h \in \mathbb{N}^*\})$}
+
+$$\tilde{f}(\{8h \mid h \in \mathbb{N}^*\}) = \{3, 4, 5, \ldots\} = \{n \in \mathbb{N} \mid n \geq 3\}$$
+
+\subsubsection*{(iv) Verificare che $f$ determina un omomorfismo da $(\mathbb{N}^*, \cdot)$ a $(\mathbb{N}, +)$}
+
+\begin{align*}
+n_1 &= p_1^{\alpha_1} \cdots p_t^{\alpha_t} \\
+n_2 &= p_1^{\beta_1} \cdots p_t^{\beta_t} \\
+f(n_1 \cdot n_2) &= f(p_1^{\alpha_1 + \beta_1} \cdots p_t^{\alpha_t + \beta_t}) \\
+&= \sum_{i=1}^{t} (\alpha_i + \beta_i) = \sum_{i=1}^{t} \alpha_i + \sum_{i=1}^{t} \beta_i = f(n_1) + f(n_2)
+\end{align*}
+
+\text{Sì è un omomorfismo}
+
+\subsubsection*{(v) Indicato con $\Re$ il nucleo di equivalenza di $f$ (cioè l'equivalenza associata a $f$), determinare $[8]_\Re$}
+
+$$[8]_{\Re} = \{y \in \mathbb{N}^* \mid 8 \Re y\} = \{y \in \mathbb{N}^* \mid f(8) = f(y)\}$$
+
+Il numero $y$ la cui $f(y) = 3$ potrebbe essere un qualsiasi numero $y$ tranne 0 la cui somma della scomposizione in numeri primi mi dia 3. Quindi:
+Siano $p_1, p_2, p_3$ numeri interi positivi e $a_1, a_2, a_3 \in \mathbb{N}$
+
+$$= \{n \in \mathbb{N} \mid n = p_1 p_2 p_3\}$$
+
+\subsubsection*{(vi) Determinare in $(\mathbb{N}^*, \sigma)$ eventuali minimo, massimo, elementi minimali, elementi massimali}
+
+Sia $\sigma$ la relazione d'ordine definita in $\mathbb{N}^*$ da: per ogni $a, b \in \mathbb{N}^*$
+$$a \,\sigma\, b \Longleftrightarrow (a = b \lor f(a) \text{ è un divisore proprio di } f(b)).$$
+
+Sicuramente non ci saranno elementi massimali, massimi e minimi. Mentre i minoranti saranno tutti gli $n$ con $f(n) = 1$ (numeri primi).
+
+\subsubsection*{(vii) Determinare in $(\mathbb{N}^*, \sigma)$ l'insieme dei minoranti di $\{4, 9\}$}
+
+%\begin{center}
+%\begin{tikzpicture}
+
+%\end{tikzpicture}
+
+%\end{center}
+
+$$MINOR(\{4, 9\})_{(\mathbb{N}^*, \sigma)} = \mathbb{P} \{\text{primi pos}\}$$
+
+\subsubsection*{(viii) Dopo aver dato la definizione di reticolo, si dica se $(\mathbb{N}^*, \sigma)$ è un reticolo}
+
+$$\forall x, y \in \mathbb{N}^* \left( \exists \sup(\{x, y\}) \land \exists \inf(\{x, y\}) \right)$$
+
+NON è un reticolo, prendi come esempio il SUP tra 8 e 4, non esiste.
+
+\subsubsection*{(ix) Posto $L = \{1, 2, 6, 9, 12, 25, 30\}$, scegliere un $a \in L$ in maniera tale che $(L \setminus \{a\}, \sigma)$ risulti essere un reticolo}
+
+\begin{center}
+	\begin{tikzpicture}[
+		% Stile globale per i nodi, li rende piccoli pallini pieni neri
+		% Se vuoi solo il testo, rimuovi 'fill' e 'inner sep' e usa 'draw' per un contorno:
+		% node style/.style={circle, draw=black, minimum size=6mm, inner sep=0pt, font=\bfseries}
+		node style/.style={circle, fill=black, inner sep=1pt, minimum size=3pt, font=\bfseries\color{white}},
+		% Stile per le linee (archi)
+		edge style/.style={thick, color=black}
+	]
+
+	% =================================
+	% LIVELLO 1 (In alto)
+	% =================================
+	\node[node style] (n1) at (0, 3) {1};
+
+	% =================================
+	% LIVELLO 2 (Intermedio)
+	% =================================
+	% Posizionamento dei nodi del secondo livello
+	% Le coordinate sono state scelte per replicare l'allineamento orizzontale
+	\node[node style] (n12) at (-3, 1) {12};
+	\node[node style] (n6) at (-1.5, 1) {6};
+	\node[node style] (n9) at (0, 1) {9};
+	\node[node style] (n25) at (1.5, 1) {25};
+	\node[node style] (n30) at (3, 1) {30};
+
+	% =================================
+	% LIVELLO 3 (In basso)
+	% =================================
+	\node[node style] (n2) at (0, -1) {2};
+
+	% =================================
+	% CONNESIONI (Archi)
+	% =================================
+
+	% Connessioni dal LIVELLO 1 al LIVELLO 2
+	\draw[edge style] (n1) -- (n12);
+	\draw[edge style] (n1) -- (n6);
+	\draw[edge style] (n1) -- (n9);
+	\draw[edge style] (n1) -- (n25);
+	\draw[edge style] (n1) -- (n30);
+
+	% Connessioni dal LIVELLO 2 al LIVELLO 3
+	\draw[edge style] (n12) -- (n2);
+	\draw[edge style] (n6) -- (n2);
+	\draw[edge style] (n9) -- (n2);
+	\draw[edge style] (n25) -- (n2);
+	\draw[edge style] (n30) -- (n2);
+	
+	\end{tikzpicture}
+\end{center}
+
+\text{a potrebbe essere qualsiasi numero tranne 1 e 2}
+
+\subsection*{Esercizio 5}
+
+Definiamo l'operazione binaria $*$ in $\mathcal{P}(\mathbb{N})$ ponendo $\forall x, y \in \mathcal{P}(\mathbb{N})(x * y = x \cup (y \setminus \{3\}))$.
+
+\subsubsection*{(i) Decidere se $*$ è commutativa e se è associativa}
+
+$$x * y = y * x \Leftrightarrow x \cup (y \setminus \{3\}) = y \cup (x \setminus \{3\}) \quad \text{No comm}$$
+
+$$x = \{1, 2, 3\} \quad y = \{4, 5\} \qquad \{1, 2, 3, 4, 5\} = \{1, 2, 4\}$$
+
+\textbf{ASS:} $(x * y) * z = x * (y * z)$
+
+$$(x \cup (y \setminus \{3\})) * z = x * (y \cup (z \setminus \{3\}))$$
+
+$$(x \cup (y \setminus \{3\})) \cup (z \setminus \{3\}) = x \cup ((y \cup (z \setminus \{3\})) \setminus \{3\})$$
+
+Per le proprietà dell'unione possiamo rimuovere le parentesi
+
+$$x \cup (y \setminus \{3\}) \cup (z \setminus \{3\}) = x \cup (y \cup (z \setminus \{3\})) \setminus \{3\}$$
+
+hanno lo stesso significato quindi è associativa.
+
+\subsubsection*{(ii) Determinare gli eventuali elementi neutri a destra, a sinistra, neutri in $(\mathcal{P}(\mathbb{N}), *)$}
+
+$$\exists x : \emptyset * y = y \setminus \{3\} \longrightarrow \text{Non ha neutro}$$
+
+$$\exists x : y * \{3\} = y$$
+
+\subsubsection*{(iii) Stabilire se $(\mathcal{P}(\mathbb{N}), *)$ è un semigruppo, un monoide, un gruppo}
+
+semigruppo commutativo
+
+\subsubsection*{(iv) Determinare gli elementi cancellabili a sinistra o a destra e gli elementi idempotenti in $(\mathcal{P}(\mathbb{N}), *)$}
+
+\textbf{Cancellabile SX:} $a * x = a * y \to x = y$
+
+$$a \cup (x \setminus \{3\}) = a \cup (y \setminus \{3\}) \to x = y$$
+
+Quando $a = \emptyset$
+
+\textbf{Cancellabile a DX:} $x * a = y * a \to x = y$, quando $a = \{3\}$
+
+\textbf{Idempotente:} $\{3\} * \{3\} = \{3\} \cup \emptyset = \{3\}$
+
+\subsubsection*{(v) L'operazione $\cap$ in $\mathcal{P}(\mathbb{N})$ è distributiva a sinistra rispetto a $*$? E a destra?}
+
+\textbf{SX:} $a \cap (b * c) \Leftrightarrow (a \cap b) * (a \cap c)$
+
+$$a \cap (b \cup (c \setminus \{3\})) \Leftrightarrow (a \cap b) \cup ((a \cap c) \setminus \{3\})$$
+
+$$(a \cap b) \cup (a \cap c \setminus \{3\}) \Leftrightarrow (a \cap b) \cup (a \cap c \setminus \{3\}) \qquad ok?$$
+
+\textbf{DX:} $(b * c) \cap a \Leftrightarrow (b \cap a) * (c \cap a)$
+
+$$(b \cup (c \setminus \{3\})) \cap a \Leftrightarrow (b \cap a) \cup (c \cap a) \setminus \{3\}$$
+
+$$a \cap b \cup a \cap c \setminus \{3\} \Leftrightarrow b \cap a \cup c \cap a \setminus \{3\} \qquad ok?$$
+
+sì sono distributivi
+
+\subsection*{Esercizio 6}
+
+Determinare l'insieme dei numeri interi $n$ tali che $84n + 5 \equiv_{92} 14n - 1$.
+
+$$84n + 14n \equiv 92 - 1 - 5$$
+$$70n \equiv 92 - 6 \longrightarrow 70n \equiv 43 \qquad MCD(70, 92) = 2 \mid 86$$
+\text{Perché 2 divide 86 ci saranno soluzioni}
+$$35n \equiv_{46} 43 \longrightarrow 35n \equiv_{46} 1$$
+$$46 = 35 \cdot 1 + 11 \qquad 11 = 46 + 35 \cdot 1$$
+$$35 = 11 \cdot 3 + 2 \qquad 2 = 35 - 11 \cdot 3$$
+$$11 = 2 \cdot 5 + 1 \qquad 1 = 11 - 2 \cdot 5$$
+$$1 = 11 - 5(35 - 11 \cdot 3) = 11 \quad -5 \cdot 35 \qquad +11 \cdot 3 \cdot 5$$
+$$11(1 + 15) + 35(-5) \longrightarrow 16(46 - 35) + 35(-5)$$
+$$\longrightarrow 46 \cdot 16 + 35(-16) + 35(-5) \longrightarrow 35(-21) + 46 \cdot 16$$
+$$35(25) + 46 \cdot 16$$
+\text{Abbiamo portato il -21 in modulo 46 aggiungendo +46}
+$$\{35\}_{46} \{25\}_{46} n = \{43\}_{46}, \{25\}_{46}$$
+$$n = \{17\}_{46}$$
+
+\section{Esame del 14 marzo 2025}
 
 \section{Esame del 19 giugno 2025}
 \begin{center}
@@ -1519,7 +1877,7 @@ $b + a = 0 \implies b=0$
 $c = 0$
 Quindi $(a, b, c) = (0, 0, 0)$. Anche in questo caso non esiste un elemento non nullo, quindi $(1, 1, 0)$ **non** è un divisore dello zero.
 
-\section{Svolgimento Esame 16 Luglio}
+\section{Esame del 16 Luglio 2025}
 \begin{center}
 	\includegraphics[scale=.85]{pdf/25-07-16.pdf}
 \end{center}
